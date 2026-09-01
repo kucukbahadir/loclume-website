@@ -8,7 +8,7 @@
 - Works with: Stockitup (stockitup.nl) as the system of record; approved corrections are written back.
 - Hardware: phone camera, Android scanner terminals, existing HID/Bluetooth/USB scanners (keyboard wedge).
 - Pricing: €30 per month per company, excl. VAT, cancel monthly.
-- Platforms: Web, Android, iOS. Live app: https://loclume.pages.dev
+- Platforms: Web, Android, iOS (app launching soon).
 - Languages: Dutch (primary), English.
 - Contact: info@loclume.com
 - Company: WeIntensify B.V., Kanaalkade 57, 1811 LS Alkmaar, the Netherlands.

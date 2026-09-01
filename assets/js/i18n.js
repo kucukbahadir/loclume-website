@@ -10,6 +10,9 @@
       "nav.pricing": "Pricing",
       "nav.contact": "Contact",
       "nav.open": "Open the app",
+      "nav.demo": "Request a demo",
+      "ft.appsoon": "App — coming soon",
+      "ct.appsoon": "App coming soon on web, Android and iOS",
 
       "hero.badge": "Works alongside Stockitup — does not replace it",
       "hero.t1": "Scan the shelf.",
@@ -93,7 +96,7 @@
       "hw.title": "Count where the stock is — not where the computer is",
       "hw.sub": "One Loclume app for Android and iOS: install it on your phone or on an Android scanner terminal with a built-in reader. Walk, scan, done. Comparison and corrections happen on the move, not afterwards at a desk.",
       "hw.1t": "Loclume Android app on a scanner terminal",
-      "hw.1p": "The same Loclume app from the Play Store, installed on an Android scanner terminal with a built-in reader (like a Zebra TC22): the fastest option for big counts and daily shelf moves.",
+      "hw.1p": "The Loclume Android app (coming soon to the Play Store), installed on an Android scanner terminal with a built-in reader (like a Zebra TC22): the fastest option for big counts and daily shelf moves.",
       "hw.2t": "Phone camera",
       "hw.2p": "No extra hardware needed: the iPhone or Android camera reads EAN and shelf barcodes directly.",
       "hw.3t": "Existing HID / Bluetooth / USB scanner",
@@ -138,7 +141,7 @@
       "cta.title": "Everything in its place. From the first scan.",
       "cta.sub": "Connect Stockitup, grab a scanner and see within an hour where your stock really is.",
       "cta.b1": "Request a demo",
-      "cta.b2": "Open the app",
+      "cta.b2": "App coming soon",
 
       "ft.about": "Modern inventory verification for teams working with Stockitup. Scan, compare and resolve differences safely.",
       "ft.product": "Product",
