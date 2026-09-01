@@ -13,11 +13,11 @@
 - [ ] 👤 Web3Forms access key aanmaken met info@loclume.com → in `assets/js/config.js`
 - [ ] 👤 Web3Forms verificatiemail bevestigen (24u geldig!)
 - [ ] 👤 info@loclume.com mailbox aanmaken (Hostinger) + forwarder naar Gmail
-- [ ] 🤖 Hostinger Git deploy koppelen (main → public_html) + auto-deployment aan
+- [x] 🤖 Deploy naar Hostinger (MCP static deploy, 1 sep 2026) — Git auto-deploy webhook nog te koppelen voor volgende releases
 
 ## Na livegang
-- [ ] 🤖 Live verificatie: ?v=N, 301's, sitemap/robots/llms 200, security headers, 404
-- [ ] 🤖 .htaccess bewijs-test: rewrite (403-test), ErrorDocument, mod_expires (2 typen)
+- [x] 🤖 Live verificatie: ?v=1 ✓, www→apex 301 ✓, sitemap/robots/llms 200 ✓, CSP/HSTS/XCTO/XFO ✓, 404 ✓
+- [x] 🤖 .htaccess bewijs-test: rewrite ✓ (www 301), ErrorDocument ✓ (eigen 404-pagina), mod_expires ✓ (img 6mnd / css 1wk / woff2 1jr)
 - [ ] 🤖 Formulier live testen → mail in inbox bevestigen (niet alleen API success!)
 - [ ] 👤 Google Search Console (Domain property, DNS TXT) + sitemap indienen
 - [ ] 👤 Bing Webmaster: Import from GSC
