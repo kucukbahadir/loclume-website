@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loclume — Snelle voorraadtelling met barcodescanner | Werkt met Stockitup</title>
+<meta name="description" content="Scan het schap, scan de producten en Loclume vergelijkt de telling direct met Stockitup. Snelle voorraadtelling en schapwissels — zonder achter de computer te zitten. €30 per maand.">
+<link rel="canonical" href="https://loclume.com/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Loclume — Snelle voorraadtelling met barcodescanner">
+<meta property="og:description" content="Scan het schap, scan de producten en Loclume vergelijkt de telling direct met Stockitup. Alles op zijn plek.">
+<meta property="og:url" content="https://loclume.com/">
+<meta property="og:image" content="https://loclume.com/assets/img/loclume_warehouse_hero.webp">
+<meta property="og:locale" content="nl_NL">
+<link rel="icon" type="image/png" href="assets/img/loclume-icon.png">
+<link rel="apple-touch-icon" href="assets/img/loclume-icon.png">
+<link rel="preload" href="assets/fonts/Manrope-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/Inter-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/style.css?v=1">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "name": "Loclume",
+      "url": "https://loclume.com/",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web, Android, iOS",
+      "description": "Loclume is een moderne voorraadverificatie-app: scan schappen en producten met een barcodescanner of telefoon, vergelijk de fysieke telling met Stockitup en los verschillen veilig op.",
+      "offers": {
+        "@type": "Offer",
+        "price": "30.00",
+        "priceCurrency": "EUR",
+        "description": "Maandelijks abonnement per bedrijf"
+      },
+      "publisher": { "@id": "https://loclume.com/#org" }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://loclume.com/#org",
+      "name": "Loclume",
+      "url": "https://loclume.com/",
+      "logo": "https://loclume.com/assets/img/loclume-mark.png",
+      "email": "info@loclume.com",
+      "parentOrganization": {
+        "@type": "Organization",
+        "name": "WeIntensify B.V.",
+        "url": "https://weintensify.com/",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Kanaalkade 57",
+          "postalCode": "1811 LS",
+          "addressLocality": "Alkmaar",
+          "addressCountry": "NL"
+        }
+      }
+    },
+    {
+      "@type": "WebSite",
+      "name": "Loclume",
+      "url": "https://loclume.com/"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Vervangt Loclume Stockitup?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Nee. Stockitup blijft je hoofdsysteem voor voorraad en e-commerce. Loclume is de werklaag op de vloer: tellen, scannen, vergelijken en verschillen veilig oplossen. Goedgekeurde correcties worden naar Stockitup teruggeschreven." }
+        },
+        {
+          "@type": "Question",
+          "name": "Welke scanners kan ik gebruiken?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Drie opties: de camera van je telefoon, een Android-handterminal met de Loclume-app, of een bestaande HID/Bluetooth/USB-scanner die barcodes als toetsenbord doorstuurt. Seriescannen werkt met alle drie." }
+        },
+        {
+          "@type": "Question",
+          "name": "Werkt Loclume ook zonder internet?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Ja. Valt de verbinding weg, dan worden scans lokaal op het apparaat bewaard en telt je medewerker gewoon door. Zodra de verbinding terug is, volgt de vergelijking met Stockitup en de synchronisatie." }
+        },
+        {
+          "@type": "Question",
+          "name": "Wat kost Loclume?",
+          "acceptedAnswer": { "@type": "Answer", "text": "€30 per maand per bedrijf, maandelijks opzegbaar. Inclusief onbeperkte tellingen, schapwissels, Stockitup-koppeling en audittrail." }
+        },
+        {
+          "@type": "Question",
+          "name": "Hoe veilig is mijn Stockitup-koppeling?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Je API-gegevens worden na verificatie server-side versleuteld opgeslagen en zijn niet meer leesbaar vanuit de app. Alleen een admin kan de koppeling vernieuwen. Elke wijziging aan Stockitup wordt met oude waarde, nieuwe waarde, gebruiker en datum vastgelegd." }
+        },
+        {
+          "@type": "Question",
+          "name": "Voor wie is Loclume bedoeld?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Voor winkels, magazijnen en operationele teams die met Stockitup werken en fysieke voorraad snel willen tellen, verplaatsen en kloppend willen houden: van boekhandels tot webshop-magazijnen." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<a class="skip-link" href="#content" data-i18n="skip">Direct naar inhoud</a>
+
+<!-- SVG sprite -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-scan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2"/><path d="M7 8v8M10.5 8v8M13.5 8v5M17 8v8"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol>
+  <symbol id="i-shelf" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M4 3v18M20 3v18M4 9h16M4 15h16"/><path d="M7 6.5h3M13 6.5h3M7 12.5h3"/></symbol>
+  <symbol id="i-compare" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h5M14 3h5a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-5"/><path d="M12 1v22" stroke-dasharray="2.5 3"/></symbol>
+  <symbol id="i-move" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M8 7H4v13h16V7h-4"/><path d="M12 2v10M9 9l3 3 3-3"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></symbol>
+  <symbol id="i-offline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5a7 7 0 0 1 11.6-3M19 11.5a7 7 0 0 1-11.6 3"/><path d="M16.5 5.5v4h-4M7.5 18.5v-4h4"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.2 3.4-5 6.5-5s5.7 1.8 6.5 5"/><circle cx="17.5" cy="9.5" r="2.5"/><path d="M16.5 15.2c2.4.3 4.3 1.8 5 4.3"/></symbol>
+  <symbol id="i-history" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l3.5 2"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><rect x="4.5" y="10.5" width="15" height="10" rx="2.5"/><path d="M8 10.5V7.8a4 4 0 0 1 8 0v2.7"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></symbol>
+  <symbol id="i-gun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h11a3 3 0 0 1 3 3v1h-8l-1.5 8h-4l1.3-8H4a1.5 1.5 0 0 1-1.5-1.5v-1A1.5 1.5 0 0 1 4 7Z"/><path d="M18 10.5l3.5-1V13l-3.5-.5"/></symbol>
+  <symbol id="i-keyboard" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><rect x="2.5" y="6.5" width="19" height="11" rx="2"/><path d="M6 10h.01M10 10h.01M14 10h.01M18 10h.01M6 14h.01M18 14h.01M9 14h6"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 7l8.5 6 8.5-6"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.7 2.7 4 6 4 9s-1.3 6.3-4 9c-2.7-2.7-4-6-4-9s1.3-6.3 4-9Z"/></symbol>
+  <symbol id="i-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5a2 2 0 0 1 2-2h13.5v16H6a2 2 0 0 0-2 2Z"/><path d="M4 19a2 2 0 0 0 2 2h13.5v-2"/><path d="M9 7h6"/></symbol>
+  <symbol id="i-box" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8.5v9L12 22l-9-4.5v-9L12 4l9 4.5Z"/><path d="M3.3 8.7 12 13l8.7-4.3M12 13v8.7"/></symbol>
+</svg>
+
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a class="logo" href="#" aria-label="Loclume home">
+      <img src="assets/img/loclume-mark.png" alt="" width="44" height="44">
+      <span>Loclume</span>
+    </a>
+    <nav class="nav-links" aria-label="Hoofdmenu">
+      <a href="#hoe-het-werkt" data-i18n="nav.how">Hoe het werkt</a>
+      <a href="#stockitup" data-i18n="nav.stockitup">Stockitup</a>
+      <a href="#functies" data-i18n="nav.features">Functies</a>
+      <a href="#prijs" data-i18n="nav.pricing">Prijs</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact" data-i18n="nav.contact">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <div class="lang-switch" role="group" aria-label="Taal">
+        <button type="button" data-set-lang="nl">NL</button>
+        <button type="button" data-set-lang="en">EN</button>
+      </div>
+      <a class="btn btn-primary" href="https://loclume.pages.dev" target="_blank" rel="noopener" data-i18n="nav.open">Open de app</a>
+    </div>
+    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#hoe-het-werkt" data-i18n="nav.how">Hoe het werkt</a>
+    <a href="#stockitup" data-i18n="nav.stockitup">Stockitup</a>
+    <a href="#functies" data-i18n="nav.features">Functies</a>
+    <a href="#prijs" data-i18n="nav.pricing">Prijs</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contact" data-i18n="nav.contact">Contact</a>
+    <div class="mm-actions">
+      <a class="btn btn-primary" href="https://loclume.pages.dev" target="_blank" rel="noopener" data-i18n="nav.open">Open de app</a>
+    </div>
+  </div>
+</header>
+
+<main id="content">
+
+<!-- ================= HERO ================= -->
+<section class="hero" aria-label="Intro">
+  <div class="container hero-grid">
+    <div>
+      <span class="hero-badge"><span class="dot"></span><span data-i18n="hero.badge">Werkt naast Stockitup — vervangt het niet</span></span>
+      <h1><span data-i18n="hero.t1">Scan het schap.</span> <span data-i18n="hero.t2">Scan de producten.</span> <span class="lime" data-i18n="hero.t3">Loclume doet de rest.</span></h1>
+      <p class="sub" data-i18n="hero.sub">Snelle voorraadtelling en schapwissels met een barcodescanner of je telefoon, direct vergeleken met Stockitup. Zonder laptop mee te sjouwen, zonder achter de computer te zitten.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="#contact" data-i18n="hero.cta1">Vraag een demo aan</a>
+        <a class="btn btn-ghost on-dark" href="#hoe-het-werkt" data-i18n="hero.cta2">Bekijk hoe het werkt</a>
+      </div>
+      <div class="hero-proof">
+        <div class="hp"><b data-i18n="hero.p1b">3× sneller</b><span data-i18n="hero.p1s">tellen dan handmatig</span></div>
+        <div class="hp"><b data-i18n="hero.p2b">1 scan</b><span data-i18n="hero.p2s">per product, aantallen automatisch</span></div>
+        <div class="hp"><b data-i18n="hero.p3b">100% audittrail</b><span data-i18n="hero.p3s">elke wijziging herleidbaar</span></div>
+      </div>
+    </div>
+
+    <div class="scene" aria-hidden="true">
+      <div class="scene-back">
+        <svg viewBox="0 0 520 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g stroke="#394032" stroke-width="2">
+            <path d="M40 30v360M480 30v360M40 120h440M40 220h440M40 320h440"/>
+            <rect x="70" y="60" width="46" height="58" rx="4"/>
+            <rect x="130" y="72" width="34" height="46" rx="4"/>
+            <rect x="330" y="66" width="52" height="52" rx="4"/>
+            <rect x="80" y="164" width="40" height="54" rx="4"/>
+            <rect x="240" y="158" width="48" height="60" rx="4"/>
+            <rect x="300" y="170" width="34" height="48" rx="4"/>
+            <rect x="400" y="162" width="44" height="56" rx="4"/>
+            <rect x="110" y="262" width="50" height="56" rx="4"/>
+            <rect x="360" y="268" width="42" height="50" rx="4"/>
+          </g>
+        </svg>
+      </div>
+      <img class="pin-float" src="assets/img/loclume-icon.png" alt="" width="52" height="52">
+      <div class="device" id="scanDevice">
+        <div class="device-top">
+          <span class="dt-title"><span class="shelf-chip">B-04-12</span><span data-i18n="scene.title">Schaptelling</span></span>
+          <span class="dt-status"><span class="dot"></span><span data-i18n="scene.live">live</span></span>
+        </div>
+        <div class="scan-strip">
+          <div class="barcode" id="barcodeBars"></div>
+          <div class="laser"></div>
+          <div class="scan-flash" id="scanFlash"></div>
+          <div class="scan-ean" id="scanEan">9781111111111</div>
+        </div>
+        <div class="count-list" id="countList"></div>
+        <div class="device-foot">
+          <div class="df-state" id="dfCompare">
+            <span class="spinner"></span>
+            <span class="df-text" data-i18n="scene.compare">Vergelijken met Stockitup…</span>
+          </div>
+          <div class="df-state ok" id="dfDone">
+            <span class="check"><svg fill="none" stroke="#151811" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>
+            <span class="df-text" data-i18n="scene.done">Alles op zijn plek</span>
+            <span class="df-diff" data-i18n="scene.diff">0 verschillen</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= HOW IT WORKS ================= -->
+<section id="hoe-het-werkt" aria-label="Hoe het werkt">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="kicker" data-i18n="how.kicker">Hoe het werkt</span>
+      <h2 data-i18n="how.title">Van schap naar zekerheid in vijf stappen</h2>
+      <p data-i18n="how.sub">Geen formulieren, geen aantallen intypen. Scannen is tellen, en Loclume legt de vergelijking met je systeem meteen naast de werkelijkheid.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal">
+        <h3 data-i18n="how.s1t">Scan het schap</h3>
+        <p data-i18n="how.s1p">Scan de schapbarcode, bijvoorbeeld B-04-12. Dat schap wordt je actieve locatie.</p>
+      </div>
+      <div class="step reveal">
+        <h3 data-i18n="how.s2t">Scan de producten</h3>
+        <p data-i18n="how.s2p">Scan alles op het schap achter elkaar. Drie keer dezelfde EAN? Loclume telt automatisch 3 stuks.</p>
+      </div>
+      <div class="step reveal">
+        <h3 data-i18n="how.s3t">Automatische vergelijking</h3>
+        <p data-i18n="how.s3p">De fysieke telling wordt direct naast de Stockitup-voorraad gelegd: correct, tekort of onverwacht.</p>
+      </div>
+      <div class="step reveal">
+        <h3 data-i18n="how.s4t">Verschillen verklaard</h3>
+        <p data-i18n="how.s4p">Loclume zoekt de oorzaak: staat het derde exemplaar op schap C-22 geregistreerd? Dan zie je dat.</p>
+      </div>
+      <div class="step reveal">
+        <h3 data-i18n="how.s5t">Jij beslist, Loclume voert uit</h3>
+        <p data-i18n="how.s5p">Correcties worden pas na jouw akkoord doorgevoerd en netjes vastgelegd in de audittrail.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= STOCKITUP ================= -->
+<section id="stockitup" class="dark-section on-dark" aria-label="Stockitup">
+  <div class="container split">
+    <div class="reveal">
+      <span class="kicker" data-i18n="siu.kicker">Voor Stockitup-gebruikers</span>
+      <h2 data-i18n="siu.title">Stockitup blijft de baas. Loclume doet het veldwerk.</h2>
+      <p style="color:var(--d-muted);font-size:16px" data-i18n="siu.sub">Loclume is geen nieuw ERP en geen vervanging. Het is de ontbrekende werklaag op de vloer: het maakt tellen, controleren en corrigeren zó snel dat je voorraad in Stockitup eindelijk altijd klopt.</p>
+      <ul class="checklist">
+        <li><svg><use href="#i-check"/></svg><span><b data-i18n="siu.c1b">Veilige koppeling in minuten</b><span data-i18n="siu.c1s">Eigen API-gegevens invoeren, verifiëren, klaar. Secrets blijven server-side en onleesbaar vanuit de app.</span></span></li>
+        <li><svg><use href="#i-check"/></svg><span><b data-i18n="siu.c2b">Realtime vergelijking per schap</b><span data-i18n="siu.c2s">Systeem zegt 3, jij telt 2? Loclume zoekt eerst uit of dat derde exemplaar ergens anders geregistreerd staat.</span></span></li>
+        <li><svg><use href="#i-check"/></svg><span><b data-i18n="siu.c3b">Correcties met één akkoord</b><span data-i18n="siu.c3s">Voorraad bijwerken, locatie corrigeren of SKU meeverhuizen, volgens de regels die jij instelt.</span></span></li>
+      </ul>
+      <div class="flow-line" aria-hidden="true">
+        <span class="fl-chip" data-i18n="siu.f1">Scannen</span>
+        <svg><use href="#i-arrow"/></svg>
+        <span class="fl-chip" data-i18n="siu.f2">Vergelijken</span>
+        <svg><use href="#i-arrow"/></svg>
+        <span class="fl-chip" data-i18n="siu.f3">Akkoord</span>
+        <svg><use href="#i-arrow"/></svg>
+        <span class="fl-chip lime">Stockitup ✓</span>
+      </div>
+    </div>
+    <div class="img-wrap reveal">
+      <img src="assets/img/loclume_shelf_scan.webp" alt="Barcodescanner scant boeken op een schap met een lime laserstraal" loading="lazy" width="1200" height="800">
+    </div>
+  </div>
+</section>
+
+<!-- ================= FEATURES ================= -->
+<section id="functies" aria-label="Functies">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="kicker" data-i18n="feat.kicker">Functies</span>
+      <h2 data-i18n="feat.title">Alles voor een telling die klopt</h2>
+      <p data-i18n="feat.sub">Gebouwd voor de vloer: grote knoppen, één primaire actie per scherm en een duidelijke volgende stap.</p>
+    </div>
+    <div class="features">
+      <div class="feature reveal">
+        <div class="f-icon"><svg><use href="#i-scan"/></svg></div>
+        <h3 data-i18n="feat.f1t">Serie-scannen</h3>
+        <p data-i18n="feat.f1p">Scan producten achter elkaar; aantallen worden automatisch gegroepeerd. Verkeerd gescand? Eén tik op "laatste scan ongedaan maken".</p>
+      </div>
+      <div class="feature reveal">
+        <div class="f-icon"><svg><use href="#i-move"/></svg></div>
+        <h3 data-i18n="feat.f2t">Schapwissels in bulk</h3>
+        <p data-i18n="feat.f2p">Scan het doelschap, scan 12 producten, één akkoord: alle locaties zijn bijgewerkt. Optioneel verhuist de SKU automatisch mee.</p>
+      </div>
+      <div class="feature reveal">
+        <div class="f-icon"><svg><use href="#i-search"/></svg></div>
+        <h3 data-i18n="feat.f3t">Product zoeken</h3>
+        <p data-i18n="feat.f3p">Scan een EAN en zie direct op welke locaties en in welke aantallen het product in Stockitup geregistreerd staat.</p>
+      </div>
+      <div class="feature reveal">
+        <div class="f-icon"><svg><use href="#i-offline"/></svg></div>
+        <h3 data-i18n="feat.f4t">Offline doorwerken</h3>
+        <p data-i18n="feat.f4p">Wifi-gat in het magazijn? Scans worden lokaal bewaard en gesynchroniseerd zodra de verbinding terug is.</p>
+      </div>
+      <div class="feature reveal">
+        <div class="f-icon"><svg><use href="#i-users"/></svg></div>
+        <h3 data-i18n="feat.f5t">Rollen en rechten</h3>
+        <p data-i18n="feat.f5p">Operators tellen, managers beoordelen verschillen, admins beheren de koppeling. Iedereen ziet precies wat nodig is.</p>
+      </div>
+      <div class="feature reveal">
+        <div class="f-icon"><svg><use href="#i-history"/></svg></div>
+        <h3 data-i18n="feat.f6t">Volledige audittrail</h3>
+        <p data-i18n="feat.f6p">Elke wijziging wordt vastgelegd met oude waarde, nieuwe waarde, gebruiker, datum en de bijbehorende telsessie.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SCENARIOS ================= -->
+<section class="on-light" style="background:var(--canvas-alt)" aria-label="Scenario's">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="kicker" data-i18n="sc.kicker">Verschillen oplossen</span>
+      <h2 data-i18n="sc.title">Niet alleen het verschil — ook de oorzaak</h2>
+      <p data-i18n="sc.sub">Loclume toont niet zomaar "1 tekort". Het onderzoekt eerst andere locaties en stelt pas daarna een veilige correctie voor.</p>
+    </div>
+    <div class="scenarios">
+      <div class="scenario reveal">
+        <div class="sc-head warn"><svg width="15" height="15"><use href="#i-search"/></svg><span data-i18n="sc.1h">Tekort op het schap</span></div>
+        <div class="sc-body">
+          <div class="compare">
+            <div class="cmp"><b>3</b><span data-i18n="sc.sys">systeem</span></div>
+            <div class="cmp"><b>2</b><span data-i18n="sc.cnt">geteld</span></div>
+          </div>
+          <p data-i18n="sc.1p">Loclume vindt het derde exemplaar geregistreerd op schap B-03 en stelt voor: controleer B-03 vóór je de voorraad afboekt.</p>
+          <div class="sc-fix"><svg><use href="#i-pin"/></svg><span data-i18n="sc.1f">Voorstel: controleer B-03 · niets wordt stilletjes gewijzigd</span></div>
+        </div>
+      </div>
+      <div class="scenario reveal">
+        <div class="sc-head err"><svg width="15" height="15"><use href="#i-box"/></svg><span data-i18n="sc.2h">Onverwacht product</span></div>
+        <div class="sc-body">
+          <div class="compare">
+            <div class="cmp"><b>0</b><span data-i18n="sc.sys">systeem</span></div>
+            <div class="cmp"><b>2</b><span data-i18n="sc.cnt">geteld</span></div>
+          </div>
+          <p data-i18n="sc.2p">Twee exemplaren gevonden die hier niet horen. Loclume checkt waar ze wél geregistreerd staan en biedt een keuze.</p>
+          <div class="sc-fix"><svg><use href="#i-move"/></svg><span data-i18n="sc.2f">Keuze: hierheen verplaatsen of terugbrengen naar C-22</span></div>
+        </div>
+      </div>
+      <div class="scenario reveal">
+        <div class="sc-head ok"><svg width="15" height="15"><use href="#i-check"/></svg><span data-i18n="sc.3h">Voorraad klopt echt niet</span></div>
+        <div class="sc-body">
+          <div class="compare">
+            <div class="cmp"><b>3</b><span data-i18n="sc.sys">systeem</span></div>
+            <div class="cmp"><b>2</b><span data-i18n="sc.cnt">geteld</span></div>
+          </div>
+          <p data-i18n="sc.3p">Nergens anders gevonden? Dan pas stelt Loclume voor de voorraad van 3 naar 2 te corrigeren, met jouw akkoord.</p>
+          <div class="sc-fix"><svg><use href="#i-check"/></svg><span data-i18n="sc.3f">Correctie 3 → 2 · vastgelegd in de audittrail</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= HARDWARE ================= -->
+<section id="scanners" class="dark-section on-dark" aria-label="Scanners en apparaten">
+  <div class="container hw-grid">
+    <div class="img-wrap reveal" style="border-radius:var(--r-lg);overflow:hidden">
+      <img src="assets/img/loclume_inventory_hero.webp" alt="Android-handscanner scant een magazijnstelling, een lime locatiepin markeert het schap" loading="lazy" width="1024" height="1024">
+    </div>
+    <div class="reveal">
+      <span class="kicker" data-i18n="hw.kicker">Zonder computer, zonder laptop</span>
+      <h2 data-i18n="hw.title">Tel waar de voorraad staat — niet waar de computer staat</h2>
+      <p style="color:var(--d-muted);font-size:16px" data-i18n="hw.sub">Installeer Loclume op een Android-handterminal of pak gewoon je telefoon. Lopen, scannen, klaar. De vergelijking en correcties gebeuren onderweg, niet achteraf achter een bureau.</p>
+      <div class="hw-cards">
+        <div class="hw-card">
+          <div class="hw-icon"><svg><use href="#i-gun"/></svg></div>
+          <div>
+            <h3 data-i18n="hw.1t">Android-handterminal</h3>
+            <p data-i18n="hw.1p">Installeer de app op je scanner met ingebouwde lezer: de snelste optie voor grote tellingen en dagelijkse schapwissels.</p>
+          </div>
+        </div>
+        <div class="hw-card">
+          <div class="hw-icon"><svg><use href="#i-phone"/></svg></div>
+          <div>
+            <h3 data-i18n="hw.2t">Telefooncamera</h3>
+            <p data-i18n="hw.2p">Geen aparte hardware nodig: de camera van iPhone of Android leest EAN- en schapbarcodes direct.</p>
+          </div>
+        </div>
+        <div class="hw-card">
+          <div class="hw-icon"><svg><use href="#i-keyboard"/></svg></div>
+          <div>
+            <h3 data-i18n="hw.3t">Bestaande HID / Bluetooth / USB-scanner</h3>
+            <p data-i18n="hw.3p">Je huidige scanner stuurt barcodes als toetsenbord door. Koppelen en serie-scannen, zonder nieuwe investering.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PRICING ================= -->
+<section id="prijs" aria-label="Prijs">
+  <div class="container">
+    <div class="section-head reveal" style="text-align:center;margin-left:auto;margin-right:auto">
+      <span class="kicker" data-i18n="pr.kicker">Prijs</span>
+      <h2 data-i18n="pr.title">Eén duidelijke prijs</h2>
+      <p data-i18n="pr.sub">Geen modules, geen verrassingen. Maandelijks opzegbaar.</p>
+    </div>
+    <div class="pricing-wrap reveal">
+      <div class="price-card">
+        <div class="pc-plan" data-i18n="pr.plan">Loclume Compleet</div>
+        <div class="pc-amount"><b>€30</b><span data-i18n="pr.per">per maand, per bedrijf</span></div>
+        <div class="pc-note" data-i18n="pr.note">excl. btw · maandelijks opzegbaar</div>
+        <ul class="checklist">
+          <li><svg><use href="#i-check"/></svg><span data-i18n="pr.i1">Onbeperkte tellingen en schapwissels</span></li>
+          <li><svg><use href="#i-check"/></svg><span data-i18n="pr.i2">Stockitup-koppeling en gezondheidscheck</span></li>
+          <li><svg><use href="#i-check"/></svg><span data-i18n="pr.i3">Web, Android en iOS — ook offline</span></li>
+          <li><svg><use href="#i-check"/></svg><span data-i18n="pr.i4">Rollen, rechten en volledige audittrail</span></li>
+          <li><svg><use href="#i-check"/></svg><span data-i18n="pr.i5">Ondersteuning in het Nederlands en Engels</span></li>
+        </ul>
+        <a class="btn btn-primary" href="#contact" data-i18n="pr.cta">Start met Loclume</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section id="faq" aria-label="Veelgestelde vragen">
+  <div class="container">
+    <div class="section-head reveal" style="text-align:center;margin-left:auto;margin-right:auto">
+      <span class="kicker">FAQ</span>
+      <h2 data-i18n="faq.title">Veelgestelde vragen</h2>
+    </div>
+    <div class="faq reveal">
+      <details open>
+        <summary><span data-i18n="faq.q1">Vervangt Loclume Stockitup?</span><svg class="chev" width="18" height="18"><use href="#i-chev"/></svg></summary>
+        <div class="faq-a" data-i18n="faq.a1">Nee. Stockitup blijft je hoofdsysteem voor voorraad en e-commerce. Loclume is de werklaag op de vloer: tellen, scannen, vergelijken en verschillen veilig oplossen. Goedgekeurde correcties worden naar Stockitup teruggeschreven.</div>
+      </details>
+      <details>
+        <summary><span data-i18n="faq.q2">Welke scanners kan ik gebruiken?</span><svg class="chev" width="18" height="18"><use href="#i-chev"/></svg></summary>
+        <div class="faq-a" data-i18n="faq.a2">Drie opties: de camera van je telefoon, een Android-handterminal met de Loclume-app, of een bestaande HID/Bluetooth/USB-scanner die barcodes als toetsenbord doorstuurt. Seriescannen werkt met alle drie.</div>
+      </details>
+      <details>
+        <summary><span data-i18n="faq.q3">Werkt Loclume ook zonder internet?</span><svg class="chev" width="18" height="18"><use href="#i-chev"/></svg></summary>
+        <div class="faq-a" data-i18n="faq.a3">Ja. Valt de verbinding weg, dan worden scans lokaal op het apparaat bewaard en telt je medewerker gewoon door. Zodra de verbinding terug is, volgt de vergelijking met Stockitup en de synchronisatie.</div>
+      </details>
+      <details>
+        <summary><span data-i18n="faq.q4">Wat kost Loclume?</span><svg class="chev" width="18" height="18"><use href="#i-chev"/></svg></summary>
+        <div class="faq-a" data-i18n="faq.a4">€30 per maand per bedrijf, maandelijks opzegbaar. Inclusief onbeperkte tellingen, schapwissels, Stockitup-koppeling en audittrail.</div>
+      </details>
+      <details>
+        <summary><span data-i18n="faq.q5">Hoe veilig is mijn Stockitup-koppeling?</span><svg class="chev" width="18" height="18"><use href="#i-chev"/></svg></summary>
+        <div class="faq-a" data-i18n="faq.a5">Je API-gegevens worden na verificatie server-side versleuteld opgeslagen en zijn niet meer leesbaar vanuit de app. Alleen een admin kan de koppeling vernieuwen. Elke wijziging aan Stockitup wordt met oude waarde, nieuwe waarde, gebruiker en datum vastgelegd.</div>
+      </details>
+      <details>
+        <summary><span data-i18n="faq.q6">Voor wie is Loclume bedoeld?</span><svg class="chev" width="18" height="18"><use href="#i-chev"/></svg></summary>
+        <div class="faq-a" data-i18n="faq.a6">Voor winkels, magazijnen en operationele teams die met Stockitup werken en fysieke voorraad snel willen tellen, verplaatsen en kloppend willen houden: van boekhandels tot webshop-magazijnen.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact" aria-label="Contact">
+  <div class="container contact-grid">
+    <div class="contact-info reveal">
+      <span class="kicker" data-i18n="ct.kicker">Contact</span>
+      <h2 data-i18n="ct.title">Zien hoe snel jouw telling kan zijn?</h2>
+      <p data-i18n="ct.sub">Vraag een demo aan of stel je vraag. We reageren doorgaans binnen één werkdag.</p>
+      <div class="contact-detail"><svg><use href="#i-mail"/></svg><a href="mailto:info@loclume.com">info@loclume.com</a></div>
+      <div class="contact-detail"><svg><use href="#i-globe"/></svg><a href="https://loclume.pages.dev" target="_blank" rel="noopener">loclume.pages.dev</a></div>
+      <div class="contact-detail"><svg><use href="#i-pin"/></svg><span>WeIntensify B.V. · Kanaalkade 57, 1811 LS Alkmaar</span></div>
+    </div>
+    <form class="contact-form reveal" id="contactForm" novalidate>
+      <div class="form-row">
+        <div class="field">
+          <label for="cf-name" data-i18n="ct.name">Naam</label>
+          <input id="cf-name" name="name" type="text" required autocomplete="name">
+        </div>
+        <div class="field">
+          <label for="cf-email" data-i18n="ct.email">E-mailadres</label>
+          <input id="cf-email" name="email" type="email" required autocomplete="email">
+        </div>
+      </div>
+      <div class="field">
+        <label for="cf-company" data-i18n="ct.company">Bedrijf</label>
+        <input id="cf-company" name="company" type="text" autocomplete="organization">
+      </div>
+      <div class="field">
+        <label for="cf-message" data-i18n="ct.msg">Bericht</label>
+        <textarea id="cf-message" name="message" required></textarea>
+      </div>
+      <label class="hp-field" aria-hidden="true">
+        <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off">
+      </label>
+      <div class="form-status" id="formStatus" role="status"></div>
+      <button class="btn btn-primary" type="submit" data-i18n="ct.send">Verstuur bericht</button>
+    </form>
+  </div>
+</section>
+
+<!-- ================= CTA BAND ================= -->
+<section aria-label="Start" style="padding-top:0">
+  <div class="container">
+    <div class="cta-band reveal">
+      <h2 data-i18n="cta.title">Alles op zijn plek. Vanaf de eerste scan.</h2>
+      <p data-i18n="cta.sub">Koppel Stockitup, pak een scanner en zie binnen een uur waar je voorraad écht staat.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="#contact" data-i18n="cta.b1">Vraag een demo aan</a>
+        <a class="btn btn-ghost" href="https://loclume.pages.dev" target="_blank" rel="noopener" data-i18n="cta.b2">Open de app</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a class="logo" href="#"><img src="assets/img/loclume-mark.png" alt="" width="44" height="44"><span>Loclume</span></a>
+        <p data-i18n="ft.about">Moderne voorraadverificatie voor teams die met Stockitup werken. Scan, vergelijk en los verschillen veilig op.</p>
+      </div>
+      <div>
+        <h4 data-i18n="ft.product">Product</h4>
+        <ul>
+          <li><a href="#hoe-het-werkt" data-i18n="nav.how">Hoe het werkt</a></li>
+          <li><a href="#functies" data-i18n="nav.features">Functies</a></li>
+          <li><a href="#prijs" data-i18n="nav.pricing">Prijs</a></li>
+          <li><a href="https://loclume.pages.dev" target="_blank" rel="noopener" data-i18n="nav.open">Open de app</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="ft.legal">Juridisch</h4>
+        <ul>
+          <li><a href="privacy.html" data-i18n="ft.privacy">Privacyverklaring</a></li>
+          <li><a href="cookies.html" data-i18n="ft.cookies">Cookieverklaring</a></li>
+          <li><a href="terms.html" data-i18n="ft.terms">Algemene voorwaarden</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span data-i18n="ft.copy">© 2026 Loclume. Alle rechten voorbehouden. Een merk van WeIntensify B.V.</span>
+      <button type="button" id="cookiePrefsOpen" data-i18n="ft.cookieprefs">Cookievoorkeuren</button>
+    </div>
+  </div>
+</footer>
+
+<!-- Cookie banner -->
+<div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Cookies">
+  <h3 data-i18n="ck.title">Cookies</h3>
+  <p data-i18n="ck.text">We gebruiken noodzakelijke cookies om de site te laten werken. Statistiekcookies laden we alleen met jouw toestemming. Lees meer in onze <a href="cookies.html">cookieverklaring</a>.</p>
+  <div class="cookie-prefs" id="cookiePrefs">
+    <label><input type="checkbox" checked disabled><span><b data-i18n="ck.nec">Noodzakelijk</b><i data-i18n="ck.necd">Altijd actief — taalkeuze en cookievoorkeur.</i></span></label>
+    <label><input type="checkbox" id="ckStats"><span><b data-i18n="ck.stats">Statistieken</b><i data-i18n="ck.statsd">Anonieme bezoekersstatistieken (Google Analytics).</i></span></label>
+  </div>
+  <div class="cookie-actions">
+    <button class="btn btn-primary" id="ckAcceptAll" data-i18n="ck.accept">Alles accepteren</button>
+    <button class="btn btn-ghost on-dark" id="ckRejectAll" data-i18n="ck.reject">Alleen noodzakelijk</button>
+    <button class="btn btn-ghost on-dark" id="ckCustomize" data-i18n="ck.custom">Aanpassen</button>
+    <button class="btn btn-primary" id="ckSave" style="display:none" data-i18n="ck.save">Opslaan</button>
+  </div>
+</div>
+
+<script src="assets/js/config.js?v=1"></script>
+<script src="assets/js/i18n.js?v=1"></script>
+<script src="assets/js/app.js?v=1"></script>
+</body>
+</html>

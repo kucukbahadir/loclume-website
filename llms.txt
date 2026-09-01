@@ -1,0 +1,21 @@
+# Loclume
+
+> Loclume is a modern inventory-verification SaaS by WeIntensify B.V. (Alkmaar, the Netherlands). Operators scan a shelf and its products with a barcode scanner, an Android scanner terminal or a phone camera; Loclume compares the physical count with Stockitup (the Dutch e-commerce inventory system) and lets an authorised user resolve differences safely. It complements Stockitup, it does not replace it.
+
+## Key facts
+
+- Product: shelf counting, bulk shelf moves, product lookup, offline counting, roles and permissions, full audit trail, multi-tenant.
+- Works with: Stockitup (stockitup.nl) as the system of record; approved corrections are written back.
+- Hardware: phone camera, Android scanner terminals, existing HID/Bluetooth/USB scanners (keyboard wedge).
+- Pricing: €30 per month per company, excl. VAT, cancel monthly.
+- Platforms: Web, Android, iOS. Live app: https://loclume.pages.dev
+- Languages: Dutch (primary), English.
+- Contact: info@loclume.com
+- Company: WeIntensify B.V., Kanaalkade 57, 1811 LS Alkmaar, the Netherlands.
+
+## Pages
+
+- https://loclume.com/ — main site (how it works, Stockitup integration, features, scenarios, hardware, pricing, FAQ, contact)
+- https://loclume.com/privacy.html — privacy statement
+- https://loclume.com/cookies.html — cookie statement
+- https://loclume.com/terms.html — terms and conditions
