@@ -161,10 +161,10 @@
     const bookIcon = '<svg fill="none" stroke="#ADB5A4" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><use href="#i-book"/></svg>';
     const boxIcon = '<svg fill="none" stroke="#ADB5A4" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><use href="#i-box"/></svg>';
     const PRODUCTS = [
+      { ean: "8712345678906", name: "Sneaker Runner — maat 42", icon: boxIcon },
       { ean: "9781111111111", name: "De Noordzee — hardcover", icon: bookIcon },
-      { ean: "9782222222222", name: "Atlas van Nederland", icon: bookIcon },
-      { ean: "8712345678906", name: "Bewaarbox 40×30", icon: boxIcon },
-      { ean: "9783333333333", name: "Kookboek Seizoenen", icon: bookIcon }
+      { ean: "8719218374652", name: "Thermosfles 750 ml", icon: boxIcon },
+      { ean: "8710987654321", name: "Weekendtas — olijfgroen", icon: boxIcon }
     ];
     // scan order: EANs, with repeats to show auto-grouping
     const SCANS = [0, 1, 0, 2, 3, 0, 1];
