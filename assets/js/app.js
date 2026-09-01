@@ -21,7 +21,7 @@
     if (mm) {
       const wrap = document.createElement("div");
       wrap.className = "lang-switch";
-      wrap.innerHTML = '<button type="button" data-set-lang="nl">NL</button><button type="button" data-set-lang="en">EN</button>';
+      wrap.innerHTML = '<button type="button" data-set-lang="nl">NL</button><button type="button" data-set-lang="en">EN</button><button type="button" data-set-lang="tr">TR</button>';
       mm.appendChild(wrap);
     }
     $$("#mobileMenu a").forEach(a => a.addEventListener("click", () => {

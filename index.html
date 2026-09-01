@@ -16,7 +16,7 @@
 <link rel="apple-touch-icon" href="assets/img/loclume-icon.png">
 <link rel="preload" href="assets/fonts/Manrope-Variable.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/Inter-Variable.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/css/style.css?v=3">
+<link rel="stylesheet" href="assets/css/style.css?v=4">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -82,7 +82,7 @@
         {
           "@type": "Question",
           "name": "Wat kost Loclume?",
-          "acceptedAnswer": { "@type": "Answer", "text": "€30 per maand per bedrijf, maandelijks opzegbaar. Inclusief onbeperkte tellingen, schapwissels, Stockitup-koppeling en audittrail." }
+          "acceptedAnswer": { "@type": "Answer", "text": "Je probeert Loclume eerst 7 dagen gratis. Daarna €30 per maand per bedrijf, maandelijks opzegbaar. Inclusief onbeperkte tellingen, schapwissels, Stockitup-koppeling en audittrail." }
         },
         {
           "@type": "Question",
@@ -146,6 +146,7 @@
       <div class="lang-switch" role="group" aria-label="Taal">
         <button type="button" data-set-lang="nl">NL</button>
         <button type="button" data-set-lang="en">EN</button>
+        <button type="button" data-set-lang="tr">TR</button>
       </div>
       <a class="btn btn-primary" href="#contact" data-i18n="nav.demo">Demo aanvragen</a>
     </div>
@@ -435,8 +436,9 @@
     <div class="pricing-wrap reveal">
       <div class="price-card">
         <div class="pc-plan" data-i18n="pr.plan">Loclume Compleet</div>
+        <div class="pc-trial"><svg width="15" height="15"><use href="#i-check"/></svg><span data-i18n="pr.trial">7 dagen gratis proberen</span></div>
         <div class="pc-amount"><b>€30</b><span data-i18n="pr.per">per maand, per bedrijf</span></div>
-        <div class="pc-note" data-i18n="pr.note">excl. btw · maandelijks opzegbaar</div>
+        <div class="pc-note" data-i18n="pr.note">na je proefperiode · excl. btw · maandelijks opzegbaar</div>
         <ul class="checklist">
           <li><svg><use href="#i-check"/></svg><span data-i18n="pr.i1">Onbeperkte tellingen en schapwissels</span></li>
           <li><svg><use href="#i-check"/></svg><span data-i18n="pr.i2">Stockitup-koppeling en gezondheidscheck</span></li>
@@ -444,7 +446,8 @@
           <li><svg><use href="#i-check"/></svg><span data-i18n="pr.i4">Rollen, rechten en volledige audittrail</span></li>
           <li><svg><use href="#i-check"/></svg><span data-i18n="pr.i5">Ondersteuning in het Nederlands en Engels</span></li>
         </ul>
-        <a class="btn btn-primary" href="#contact" data-i18n="pr.cta">Start met Loclume</a>
+        <a class="btn btn-primary" href="#contact" data-i18n="pr.cta">Start je gratis proefperiode</a>
+        <div class="pc-appsoon"><span class="dot"></span><span data-i18n="pr.appsoon">App binnenkort beschikbaar — vraag een demo aan en krijg bericht bij de lancering</span></div>
       </div>
     </div>
   </div>
@@ -472,7 +475,7 @@
       </details>
       <details>
         <summary><span data-i18n="faq.q4">Wat kost Loclume?</span><svg class="chev" width="18" height="18"><use href="#i-chev"/></svg></summary>
-        <div class="faq-a" data-i18n="faq.a4">€30 per maand per bedrijf, maandelijks opzegbaar. Inclusief onbeperkte tellingen, schapwissels, Stockitup-koppeling en audittrail.</div>
+        <div class="faq-a" data-i18n="faq.a4">Je probeert Loclume eerst 7 dagen gratis. Daarna €30 per maand per bedrijf, maandelijks opzegbaar. Inclusief onbeperkte tellingen, schapwissels, Stockitup-koppeling en audittrail.</div>
       </details>
       <details>
         <summary><span data-i18n="faq.q5">Hoe veilig is mijn Stockitup-koppeling?</span><svg class="chev" width="18" height="18"><use href="#i-chev"/></svg></summary>
@@ -589,8 +592,8 @@
   </div>
 </div>
 
-<script src="assets/js/config.js?v=3"></script>
-<script src="assets/js/i18n.js?v=3"></script>
-<script src="assets/js/app.js?v=3"></script>
+<script src="assets/js/config.js?v=4"></script>
+<script src="assets/js/i18n.js?v=4"></script>
+<script src="assets/js/app.js?v=4"></script>
 </body>
 </html>
