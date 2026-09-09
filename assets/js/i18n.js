@@ -11,6 +11,18 @@
       "nav.contact": "Contact",
       "nav.open": "Open the app",
       "nav.demo": "Request a demo",
+      "nav.menu": "Open menu",
+      "nav.close": "Close menu",
+      "nav.main": "Main menu",
+      "nav.lang": "Language",
+      "meta.title": "Loclume — Fast stock counts with a barcode scanner | Works with Stockitup",
+      "meta.desc": "Scan the shelf, scan the products and Loclume compares the count with Stockitup instantly. Fast stock counts and shelf moves — without sitting behind a computer. €30 per month.",
+      "img.shelf": "Barcode scanner scanning books on a shelf with a lime laser beam",
+      "img.hw": "Android handheld scanner scanning a warehouse rack, a lime location pin marks the shelf",
+      "scene.p1": "Sneaker Runner — size 42",
+      "scene.p2": "The North Sea — hardcover",
+      "scene.p3": "Thermos flask 750 ml",
+      "scene.p4": "Weekend bag — olive green",
       "ft.appsoon": "App — coming soon",
       "ct.appsoon": "App coming soon on web, Android and iOS",
 
@@ -139,6 +151,7 @@
       "ct.company": "Company",
       "ct.msg": "Message",
       "ct.send": "Send message",
+      "ct.note": "By sending you agree to our <a href=\"privacy.html\">privacy statement</a>. We only use your details to reply.",
 
       "cta.title": "Everything in its place. From the first scan.",
       "cta.sub": "Connect Stockitup, grab a scanner and see within an hour where your stock really is.",
@@ -180,6 +193,18 @@
       "nav.contact": "İletişim",
       "nav.open": "Uygulamayı aç",
       "nav.demo": "Demo talep et",
+      "nav.menu": "Menüyü aç",
+      "nav.close": "Menüyü kapat",
+      "nav.main": "Ana menü",
+      "nav.lang": "Dil",
+      "meta.title": "Loclume — Barkod okuyucuyla hızlı stok sayımı | Stockitup ile çalışır",
+      "meta.desc": "Rafı okut, ürünleri okut; Loclume sayımı anında Stockitup ile karşılaştırır. Bilgisayar başına geçmeden hızlı stok sayımı ve raf değişimi. Ayda 30 €.",
+      "img.shelf": "Barkod okuyucu, lime lazer ışınıyla raftaki kitapları okutuyor",
+      "img.hw": "Android el terminali bir depo rafını okutuyor, lime bir konum pini rafı işaretliyor",
+      "scene.p1": "Sneaker Runner — 42 numara",
+      "scene.p2": "Kuzey Denizi — ciltli",
+      "scene.p3": "Termos 750 ml",
+      "scene.p4": "Hafta sonu çantası — zeytin yeşili",
       "ft.appsoon": "Uygulama — çok yakında",
       "ct.appsoon": "Uygulama çok yakında web, Android ve iOS'ta",
 
@@ -308,6 +333,7 @@
       "ct.company": "Şirket",
       "ct.msg": "Mesaj",
       "ct.send": "Mesajı gönder",
+      "ct.note": "Göndererek <a href=\"privacy.html\">gizlilik bildirimimizi</a> kabul edersin. Bilgilerini yalnızca sana yanıt vermek için kullanırız.",
 
       "cta.title": "Her şey yerli yerinde. İlk okutmadan itibaren.",
       "cta.sub": "Stockitup'ı bağla, bir tarayıcı al ve stoğunun gerçekte nerede olduğunu bir saat içinde gör.",
@@ -341,6 +367,9 @@
     },
     // NL runtime-only strings (NL body text lives in the HTML)
     nl: {
+      "nav.menu": "Menu openen",
+      "nav.close": "Menu sluiten",
+      "nav.lang": "Taal",
       "rt.sending": "Versturen…",
       "rt.sent": "Bedankt! Je bericht is verstuurd. We nemen snel contact met je op.",
       "rt.error": "Er ging iets mis bij het versturen. Mail ons op info@loclume.com.",
@@ -348,11 +377,12 @@
     }
   };
 
-  const HTML_KEYS_WITH_MARKUP = ["ck.text"];
+  const HTML_KEYS_WITH_MARKUP = ["ck.text", "ct.note"];
   const ORIG = {}; // original NL text captured from HTML
 
+  function readStored() { try { return localStorage.getItem("loclume_lang"); } catch (e) { return null; } }
   function detectLang() {
-    const stored = localStorage.getItem("loclume_lang");
+    const stored = readStored();
     if (stored && (stored === "nl" || stored === "en" || stored === "tr")) return stored;
     const langs = navigator.languages || [navigator.language || "nl"];
     for (const l of langs) {
@@ -390,7 +420,7 @@
 
   function apply(lang) {
     window.LOCLUME_I18N.lang = lang;
-    localStorage.setItem("loclume_lang", lang);
+    try { localStorage.setItem("loclume_lang", lang); } catch (e) { /* storage blocked: language still applies for this visit */ }
     document.documentElement.lang = lang;
     document.querySelectorAll("[data-i18n]").forEach(el => {
       const k = el.getAttribute("data-i18n");
@@ -413,19 +443,25 @@
       });
     });
     document.querySelectorAll("[data-set-lang]").forEach(btn => {
-      btn.classList.toggle("active", btn.getAttribute("data-set-lang") === lang);
+      const on = btn.getAttribute("data-set-lang") === lang;
+      btn.classList.toggle("active", on);
+      btn.setAttribute("aria-pressed", on ? "true" : "false");
     });
+    document.dispatchEvent(new CustomEvent("loclume:lang", { detail: { lang } }));
   }
 
-  window.LOCLUME_I18N = { lang: "nl", t, apply, DICTS };
+  window.LOCLUME_I18N = { lang: "nl", ready: false, t, apply, DICTS };
 
-  document.addEventListener("DOMContentLoaded", () => {
+  function init() {
     captureOriginals();
+    window.LOCLUME_I18N.ready = true;
     apply(detectLang());
     // Event delegation: works for injected buttons too
     document.addEventListener("click", e => {
       const btn = e.target.closest("[data-set-lang]");
       if (btn) apply(btn.getAttribute("data-set-lang"));
     });
-  });
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
+  else init();
 })();

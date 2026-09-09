@@ -7,19 +7,21 @@
 <meta name="description" content="Algemene voorwaarden van Loclume, een merk van WeIntensify B.V.">
 <meta name="robots" content="noindex,follow">
 <link rel="canonical" href="https://loclume.com/terms.html">
-<link rel="icon" type="image/png" href="assets/img/loclume-icon.png">
-<link rel="stylesheet" href="assets/css/style.css?v=1">
+<meta name="theme-color" content="#151811">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="stylesheet" href="assets/css/style.css?v=6">
 </head>
 <body>
 <header class="nav solid">
   <div class="nav-inner">
-    <a class="logo" href="index.html"><img src="assets/img/loclume-mark.png" alt="" width="44" height="44"><span>Loclume</span></a>
+    <a class="logo" href="index.html"><img src="assets/img/loclume-mark-88.png" alt="" width="44" height="44"><span>Loclume</span></a>
   </div>
 </header>
 <main class="legal-main">
   <div class="legal-lang-toggle" role="group" aria-label="Taal">
-    <button type="button" data-legal-set="nl" class="active">NL</button>
-    <button type="button" data-legal-set="en">EN</button>
+    <button type="button" data-legal-set="nl" class="active" aria-pressed="true">NL</button>
+    <button type="button" data-legal-set="en" aria-pressed="false">EN</button>
   </div>
 
   <div data-legal-lang="nl">
@@ -39,6 +41,7 @@
     <p>Alle rechten op de software, merknaam, logo's en content berusten bij WeIntensify B.V. of haar licentiegevers.</p>
     <h2>7. Toepasselijk recht</h2>
     <p>Op deze voorwaarden is Nederlands recht van toepassing. Geschillen worden voorgelegd aan de bevoegde rechter in Nederland.</p>
+    <a class="legal-back" href="index.html"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>Terug naar loclume.com</a>
   </div>
 
   <div data-legal-lang="en" hidden>
@@ -58,25 +61,15 @@
     <p>All rights to the software, brand name, logos and content belong to WeIntensify B.V. or its licensors.</p>
     <h2>7. Applicable law</h2>
     <p>These terms are governed by Dutch law. Disputes will be submitted to the competent court in the Netherlands.</p>
+    <a class="legal-back" href="index.html"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>Back to loclume.com</a>
   </div>
 </main>
 <footer>
   <div class="container footer-bottom" style="border:0;padding-top:0">
     <span>© 2026 Loclume. Een merk van WeIntensify B.V.</span>
-    <span><a href="index.html" style="color:inherit">loclume.com</a></span>
+    <span><a class="link" href="index.html#cookies">Cookievoorkeuren / Cookie preferences</a> · <a class="link" href="index.html">loclume.com</a></span>
   </div>
 </footer>
-<script>
-(function(){
-  var site=(localStorage.getItem("loclume_lang")||"nl");
-  function set(l){
-    document.querySelectorAll("[data-legal-lang]").forEach(function(b){ b.hidden = b.getAttribute("data-legal-lang")!==l; });
-    document.querySelectorAll("[data-legal-set]").forEach(function(b){ b.classList.toggle("active", b.getAttribute("data-legal-set")===l); });
-    document.documentElement.lang=l;
-  }
-  document.querySelectorAll("[data-legal-set]").forEach(function(b){ b.addEventListener("click",function(){ set(b.getAttribute("data-legal-set")); }); });
-  set(site==="nl"?"nl":"en");
-})();
-</script>
+<script src="assets/js/legal.js?v=6"></script>
 </body>
 </html>

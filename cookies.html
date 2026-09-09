@@ -7,19 +7,21 @@
 <meta name="description" content="Cookieverklaring van Loclume, een merk van WeIntensify B.V.">
 <meta name="robots" content="noindex,follow">
 <link rel="canonical" href="https://loclume.com/cookies.html">
-<link rel="icon" type="image/png" href="assets/img/loclume-icon.png">
-<link rel="stylesheet" href="assets/css/style.css?v=1">
+<meta name="theme-color" content="#151811">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="stylesheet" href="assets/css/style.css?v=6">
 </head>
 <body>
 <header class="nav solid">
   <div class="nav-inner">
-    <a class="logo" href="index.html"><img src="assets/img/loclume-mark.png" alt="" width="44" height="44"><span>Loclume</span></a>
+    <a class="logo" href="index.html"><img src="assets/img/loclume-mark-88.png" alt="" width="44" height="44"><span>Loclume</span></a>
   </div>
 </header>
 <main class="legal-main">
   <div class="legal-lang-toggle" role="group" aria-label="Taal">
-    <button type="button" data-legal-set="nl" class="active">NL</button>
-    <button type="button" data-legal-set="en">EN</button>
+    <button type="button" data-legal-set="nl" class="active" aria-pressed="true">NL</button>
+    <button type="button" data-legal-set="en" aria-pressed="false">EN</button>
   </div>
 
   <div data-legal-lang="nl">
@@ -27,15 +29,16 @@
     <p class="legal-date">Laatst bijgewerkt: 1 september 2026</p>
     <p>Deze website van Loclume (een merk van WeIntensify B.V.) gebruikt zo min mogelijk cookies. Statistiekcookies worden alleen geplaatst nadat je daarvoor toestemming hebt gegeven via de cookiebanner (opt-in).</p>
     <h2>Overzicht</h2>
-    <table>
+    <div class="table-wrap"><table>
       <tr><th>Categorie</th><th>Naam / opslag</th><th>Doel</th><th>Bewaartermijn</th></tr>
       <tr><td>Noodzakelijk</td><td>loclume_lang (localStorage)</td><td>Taalkeuze onthouden</td><td>Tot je hem wist</td></tr>
       <tr><td>Noodzakelijk</td><td>loclume_consent_v1 (localStorage)</td><td>Cookievoorkeur onthouden</td><td>365 dagen</td></tr>
       <tr><td>Statistieken (opt-in)</td><td>Google Analytics (_ga, _ga_*)</td><td>Anonieme bezoekersstatistieken</td><td>Max. 2 jaar</td></tr>
-    </table>
+    </table></div>
     <h2>Voorkeuren aanpassen</h2>
     <p>Je kunt je keuze altijd wijzigen via de knop "Cookievoorkeuren" onderaan elke pagina, of door de sitegegevens in je browser te wissen.</p>
     <p>Meer informatie over gegevensverwerking vind je in onze <a href="privacy.html">privacyverklaring</a>.</p>
+    <a class="legal-back" href="index.html"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>Terug naar loclume.com</a>
   </div>
 
   <div data-legal-lang="en" hidden>
@@ -43,34 +46,24 @@
     <p class="legal-date">Last updated: 1 September 2026</p>
     <p>This Loclume website (a brand of WeIntensify B.V.) uses as few cookies as possible. Statistics cookies are only set after you have given consent via the cookie banner (opt-in).</p>
     <h2>Overview</h2>
-    <table>
+    <div class="table-wrap"><table>
       <tr><th>Category</th><th>Name / storage</th><th>Purpose</th><th>Retention</th></tr>
       <tr><td>Necessary</td><td>loclume_lang (localStorage)</td><td>Remember language choice</td><td>Until you clear it</td></tr>
       <tr><td>Necessary</td><td>loclume_consent_v1 (localStorage)</td><td>Remember cookie preference</td><td>365 days</td></tr>
       <tr><td>Statistics (opt-in)</td><td>Google Analytics (_ga, _ga_*)</td><td>Anonymous visitor statistics</td><td>Max. 2 years</td></tr>
-    </table>
+    </table></div>
     <h2>Changing your preferences</h2>
     <p>You can change your choice at any time via the "Cookie preferences" button at the bottom of every page, or by clearing site data in your browser.</p>
     <p>More information about data processing can be found in our <a href="privacy.html">privacy statement</a>.</p>
+    <a class="legal-back" href="index.html"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>Back to loclume.com</a>
   </div>
 </main>
 <footer>
   <div class="container footer-bottom" style="border:0;padding-top:0">
     <span>© 2026 Loclume. Een merk van WeIntensify B.V.</span>
-    <span><a href="index.html" style="color:inherit">loclume.com</a></span>
+    <span><a class="link" href="index.html#cookies">Cookievoorkeuren / Cookie preferences</a> · <a class="link" href="index.html">loclume.com</a></span>
   </div>
 </footer>
-<script>
-(function(){
-  var site=(localStorage.getItem("loclume_lang")||"nl");
-  function set(l){
-    document.querySelectorAll("[data-legal-lang]").forEach(function(b){ b.hidden = b.getAttribute("data-legal-lang")!==l; });
-    document.querySelectorAll("[data-legal-set]").forEach(function(b){ b.classList.toggle("active", b.getAttribute("data-legal-set")===l); });
-    document.documentElement.lang=l;
-  }
-  document.querySelectorAll("[data-legal-set]").forEach(function(b){ b.addEventListener("click",function(){ set(b.getAttribute("data-legal-set")); }); });
-  set(site==="nl"?"nl":"en");
-})();
-</script>
+<script src="assets/js/legal.js?v=6"></script>
 </body>
 </html>

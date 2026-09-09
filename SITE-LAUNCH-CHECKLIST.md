@@ -25,4 +25,6 @@
 - [ ] 🤖 DNS check: SPF/DKIM/DMARC voor loclume.com
 - [ ] 🤖 ops/uptime-check.sh: loclume.com|Loclume regel toevoegen (VPS cron, Telegram MonitorWeIntensify)
 - [ ] 🤖 securityheaders.com → doel A/A+
-- [ ] 👤 PageSpeed test in eigen Chrome (doel: mobiel 95+, desktop 100)
+- [x] 🤖 Site-review 9 sep 2026: Inter-subset (342→70 KB), icons/OG geoptimaliseerd, CSP-fix legal pages, cookie-banner alleen bij GA, animaties + scroll-spy, a11y. Lighthouse lokaal: mobiel 97/100/100/100, desktop 100/100/100/100 (bump v6)
+- [ ] 👤 PageSpeed test in eigen Chrome na deploy (doel: mobiel 95+, desktop 100)
+- [ ] 👤 Social preview checken (LinkedIn Post Inspector / opengraph.xyz) → `og-image.jpg` 1200×630
