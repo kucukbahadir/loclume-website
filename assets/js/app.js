@@ -35,25 +35,16 @@
   }
   if (burger) {
     burger.addEventListener("click", () => setMenu(!nav.classList.contains("open")));
-    // inject language buttons into mobile menu
+    // Mobile header is logo + burger only: the language switcher moves into the menu
     const mm = $("#mobileMenu .mm-actions");
-    if (mm) {
-      const wrap = document.createElement("div");
-      wrap.className = "lang-switch";
-      wrap.setAttribute("role", "group");
-      wrap.setAttribute("aria-label", t("nav.lang", "Taal"));
-      wrap.innerHTML = '<button type="button" data-set-lang="nl">NL</button><button type="button" data-set-lang="en">EN</button><button type="button" data-set-lang="tr">TR</button>';
-      mm.appendChild(wrap);
-      // i18n normally initialises after this (DOMContentLoaded) and styles these buttons itself;
-      // only re-apply if it already ran (never persist a language it has not detected yet).
-      if (window.LOCLUME_I18N && window.LOCLUME_I18N.ready) window.LOCLUME_I18N.apply(window.LOCLUME_I18N.lang);
-    }
-    $$("#mobileMenu a").forEach((a, i) => {
+    const langSwitch = $(".nav-cta .lang-switch");
+    if (mm && langSwitch) mm.appendChild(langSwitch.cloneNode(true));
+    $$("#mobileMenu > a").forEach((a, i) => {
       a.style.setProperty("--i", i);
       a.addEventListener("click", () => setMenu(false));
     });
     const mmActions = $("#mobileMenu .mm-actions");
-    if (mmActions) mmActions.style.setProperty("--i", $$("#mobileMenu a").length);
+    if (mmActions) mmActions.style.setProperty("--i", $$("#mobileMenu > a").length);
     document.addEventListener("keydown", e => { if (e.key === "Escape" && nav.classList.contains("open")) { setMenu(false); burger.focus(); } });
     document.addEventListener("click", e => {
       if (nav.classList.contains("open") && !nav.contains(e.target)) setMenu(false);
@@ -161,6 +152,9 @@
     const okIcon = '<svg aria-hidden="true"><use href="#i-check"/></svg>';
     const fields = $$("input[required], textarea[required]", form);
     function showStatus(kind, msg) {
+      // Errors interrupt (alert), success is announced politely (status)
+      status.setAttribute("role", kind === "err" ? "alert" : "status");
+      status.setAttribute("aria-live", kind === "err" ? "assertive" : "polite");
       status.className = "form-status " + kind;
       status.innerHTML = (kind === "ok" ? okIcon : "") + "<span></span>";
       status.lastChild.textContent = msg;
@@ -284,14 +278,11 @@
       dfDone.classList.remove("show");
     }
 
+    // The scan loop also runs with reduced motion: CSS then swaps every movement for a
+    // plain fade (no sweeping laser, no sliding rows), so the demo still tells its story.
     function runScene() {
       clearTimers();
       resetScene();
-      if (reduceMotion) {
-        SCANS.forEach(scanOne);
-        dfDone.classList.add("show");
-        return;
-      }
       running = true;
       let i = 0;
       const step = () => {
@@ -307,23 +298,20 @@
           }, 2200);
         }, 700);
       };
-      later(step, 500);
+      // First frame: the shelf is already scanned, so the device never looks empty
+      step();
     }
     function pause() { clearTimers(); running = false; scene.classList.add("paused"); }
     function resume() { scene.classList.remove("paused"); if (!running) runScene(); }
     function sync() { if (visible && !document.hidden) resume(); else pause(); }
 
-    // Run only while the hero is on screen and the tab is visible (saves CPU/battery)
+    // Run while the device is on (or about to scroll onto) the screen and the tab is visible.
+    // On phones the device sits below the headline, so start a little before it appears.
     if ("IntersectionObserver" in window) {
-      const io = new IntersectionObserver(entries => { visible = entries[0].isIntersecting; sync(); }, { threshold: 0.25 });
+      const io = new IntersectionObserver(entries => { visible = entries[0].isIntersecting; sync(); }, { rootMargin: "25% 0px 25% 0px", threshold: 0 });
       io.observe(device);
     } else { visible = true; sync(); }
     document.addEventListener("visibilitychange", sync);
-
-    // Re-render product names when the language changes
-    document.addEventListener("loclume:lang", () => {
-      Object.keys(rows).forEach(k => { rows[k].el.querySelector(".cr-name").textContent = t(PRODUCTS[k].key, PRODUCTS[k].name); });
-    });
 
     // Gentle 3D tilt following the pointer (desktop, fine pointer, motion allowed)
     const canTilt = window.matchMedia("(hover: hover) and (pointer: fine)").matches && !reduceMotion;

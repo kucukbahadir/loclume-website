@@ -12,113 +12,92 @@ Generated from `.skills.yaml` by `bin/skills-project` — do not edit by hand.
 <!-- skills-library:end -->
 
 
-WeIntensify **weintensify-website-builder** playbook'unun bu repoya sabitlenmiş
-kopyası. Codex ve Claude Code bu dosyayı okur. Tek doğruluk kaynağı:
-`~/.claude/skills/weintensify-website-builder/SKILL.md` (Notion aynası:
-"WeIntensify Website Builder Skills"). Bir kural değişince üçünü de senkron tut.
+Repository-pinned summary of the WeIntensify **weintensify-website-builder** playbook.
+Codex and Claude Code both read this file. Source of truth for the general rules:
+`~/.claude/skills/weintensify-website-builder/SKILL.md`. See `README.md` for the
+file layout and commands.
 
-Stack: zero-build statik site (HTML + CSS + vanilla JS). Build adımı yok.
-NL ana dil HTML'de, EN/TR `assets/js/i18n.js` sözlüğünde. Hosting: Hostinger,
-`main` → `public_html` Git auto-deploy.
-
----
-
-## Altın kurallar (bu sitede pahalıya patlayanlardan çıktı — 2026-09 Loclume turu)
-
-### 1. CSP inline script'e izin vermez — kanıtla, varsayma
-`.htaccess` içindeki `script-src` yalnızca `'self'`, GA host'u ve **tek bir
-sha256 hash** içerir; `'unsafe-inline'` YOKTUR.
-- Legal sayfalardaki dil değiştirici bir zamanlar inline `<script>` idi →
-  canlıda CSP tarafından bloklandı, NL/EN toggle sessizce çalışmadı. Tüm JS
-  `assets/js/`'te yaşar (`legal.js` dahil).
-- Tek istisna `index.html`'deki `document.documentElement.classList.add("js")`
-  tek satırı; hash'iyle whitelist'li. **Bu satırı değiştirirsen** yeni hash'i
-  hesapla ve `.htaccess`'i güncelle:
-  ```
-  printf %s '<script gövdesi>' | openssl dgst -sha256 -binary | base64
-  ```
-- Her deploy sonrası: `curl -sI https://loclume.com/privacy.html` ile CSP
-  başlığını gör + legal toggle'ın gerçekten çalıştığını doğrula.
-
-### 2. `localStorage` erişimini asla çıplak çağırma
-Gizli mod / engellenmiş depolama `getItem`/`setItem`'de exception fırlatır.
-Her erişim try/catch içinde; depolama hatası i18n veya çerez onayını
-KIRMAMALI (site dili yine de o ziyaret için uygulanır).
-
-### 3. Cache versiyonlarını hep birlikte bump et
-Bir asset değişince `?v=N` **tüm sayfalarda** artar: `index.html`,
-`privacy.html`, `cookies.html`, `terms.html`, `404.html`. Legal + 404 bir kez
-`?v=1`'de unutulup index v5'teyken kırık stil verdi. Yayın sonrası
-`curl -s https://loclume.com | grep '?v='` ile doğrula.
-
-### 4. Çerez bandı yalnızca izlenecek bir şey varken çıkar
-`config.js`'te `gaId` boşsa site hiç izleme çerezi kurmaz → banner GÖSTERİLMEZ.
-Ama footer'daki "Cookievoorkeuren" ve legal sayfalardan `index.html#cookies`
-derin linki her zaman tercihleri açmalı. GA yalnızca istatistik onayından
-sonra yüklenir (`anonymize_ip`).
-
-### 5. JS olmadan içerik görünmez kalmasın
-Scroll-reveal animasyonu `opacity:0`'ı `html.js` sınıfına bağlar; sınıfı
-whitelist'li inline snippet ekler. JS kapalıysa/başarısızsa tüm `.reveal`
-içerik görünür. `prefers-reduced-motion`'da da görünür + animasyonsuz.
-
-### 6. Font: subset + metrik-eşleşen fallback (CLS 0)
-`Inter-Variable.woff2` Latin + Latin-Ext subset'idir, opsz 14'e sabitli
-(342 KB → 70 KB). Subset sonrası TR glyph'lerini doğrula
-(`şğİıçöüŞĞÇÖÜ€×→—…`). Her webfont için `size-adjust`/`ascent-override`/
-`descent-override` ile metrik-eşleşen bir fallback `@font-face` (Arial/
-Liberation Sans) → font yüklenirken layout kaymaz.
-
-### 7. Görseller: gerçek boyut + responsive + OG
-İkon/logo gerçek boyutta servis edilir (235 KB favicon YOK: `favicon-32`,
-`apple-touch-icon`, `icon-192`, `loclume-mark-88`, `loclume-icon-104.webp`).
-İçerik fotoğrafları `-600w` srcset varyantı taşır. Sosyal kart gerçek
-1200×630 `og-image.jpg` (webp değil — bazı kazıyıcılar webp OG okumaz).
-
-### 8. i18n kapsamı gövdeyle sınırlı değil
-`<title>`, meta description, `alt`, `aria-label` dil değişimiyle ÇEVRİLİR
-(`data-i18n` / `data-i18n-attr`). Dil butonları `aria-pressed` taşır.
-Bitirmeden: HTML anahtarları × her sözlük diff = 0 eksik.
-
-### 9. Animasyon performansı: yalnız transform/opacity
-Layout tetikleyen özellik (`left`, `top`, `width`) her karede animate edilmez;
-kompozitör-dostu `transform`/`opacity` kullan (lazer taraması `left` yerine
-`translateX`). Döngüsel hero sahnesi ekran dışında veya sekme gizliyken durur
-(`IntersectionObserver` + `visibilitychange`). Scroll handler `rAF`-throttle.
-
-### 10. Üretim CSP'si altında yerel doğrula
-Düz statik sunucu CSP uygulamaz → legal inline-script kırılması gibi hatalar
-görünmez. Yerel test sunucusu `.htaccess`'teki CSP başlığını replay etmeli.
-Lighthouse: node API + Playwright Chrome'una `--remote-debugging-port` ile
-bağlan (CLI headless `NO_FCP` verir). axe-core'u Playwright'a enjekte et.
-
-### 11. Model kimliği / attribution sızdırma
-Model ID veya "Generated with" satırı commit mesajına, PR'a, kod yorumuna veya
-repoya giden hiçbir artefakta girmez — yalnız sohbet cevabında.
+Stack: static site, no framework. Dutch lives in `index.html`; `/en/` and `/tr/` are
+generated by `tools/build.mjs`. Hosting: Hostinger (`public_html`).
 
 ---
 
-## Deploy dört bağımsız durumdur
-1. Kaynak doğrulandı (lint/format/typecheck + değişen testler).
-2. Temiz çıktı doğrulandı (`archive/`, `scripts/` sızmaz).
-3. Upload gerçekten tamamlandı.
-4. Canlı kabul sözleşmeleri geçti (`?v=N`, yol/başlık/işaret kontrolleri).
+## Golden rules (each one broke something on this site before)
 
-Push ≠ canlı; yeni fingerprint upload'ın bittiğini veya kabulün geçtiğini
-KANITLAMAZ. CI/upload yeşil ama canlı kabul kırmızıysa "tamamlandı" denmez,
-"yüklenmiş ama kabul edilmemiş" denir.
+### 1. Never hand-edit generated files
+`en/index.html`, `tr/index.html`, `privacy.html`, `cookies.html`, `terms.html`,
+`support/**/index.html` and the JSON-LD block in `index.html` are generated.
+Edit `index.html`, `tools/i18n-pages.json` or `tools/content/*.html`, then run
+`node tools/build.mjs`. CI fails on stale output (`--check`).
 
-## Form teslimatı (Web3Forms tuzağı)
-Hedef e-posta Web3Forms'ta doğrulanmamışsa API "success" döner ama mail
-teslim edilmez. Form işi ancak canlı gönderim yapılıp Gmail kutusunda teslimat
-maili bizzat görülünce kapanır.
+### 2. The CSP allows no inline scripts
+`script-src` in `.htaccess` is `'self'` + the GA host, nothing else. Every script lives
+in `assets/js/` (the `js` class is set by `i18n.js`, which loads in `<head>`). The legal
+language toggle was once an inline script and silently died in production.
+Test locally with `node tools/serve.mjs`: it replays the production headers.
 
-## Paralel ajan hijyeni
-Aynı repoda başka oturum/Codex PR'ı çalışabilir. Yalnız kendi pathspec'ini
-commit'le; push'tan önce `git fetch` + `git rev-list --left-right --count`.
-Her git zincirinden sonra `git rev-parse --abbrev-ref HEAD` ile branch doğrula.
+### 3. Product claims come from the app repository
+The app repo (`kucukbahadir/Loclume`, `PRODUCT.md`) forbids invented benchmarks,
+testimonials, pricing claims and customer logos. Real roles are owner / admin /
+supervisor / operator; operational history is kept 90 days; when the connection drops the
+count is kept safe and resumes after sync (not "full offline counting"). Check a claim
+against the app before publishing it. `tools/verify.mjs` blocks the old "10x" claim.
 
-## Kullanıcı çalışma stili
-Türkçe kısa iteratif talepler. Her tur: değiştir → LOKAL doğrula → commit →
-develop→main → CANLI doğrula → tek paragraf özet. UI'da emoji yok (SVG ikon).
-Eksik bilgiyi sormadan bekletme: placeholder + GitHub Issue ile geç.
+### 4. One URL per language
+Language switcher = links (`data-lang-link`), not in-place text swapping. `hreflang`
+alternates, canonical, `og:locale` and JSON-LD `inLanguage` are generated per page.
+The home page redirects first-time human visitors to their browser language
+(`en`/`tr`) or their stored choice; crawlers are never redirected.
+
+### 5. Wrap every `localStorage` access in try/catch
+Private mode / blocked storage throws; it must never break language or consent.
+
+### 6. Bump the cache version on every CSS/JS change
+Change `?v=N` in `index.html`; the build copies it to all pages and `verify.mjs` fails
+when versions differ.
+
+### 7. Cookie banner only when there is something to consent to
+With an empty `gaId` there is no tracking, so no banner. `/#cookies` and the footer
+button always open the preferences. GA loads only after statistics consent.
+
+### 8. Content stays visible without JS
+Reveal animations only hide content under `html.js`. With reduced motion everything is
+visible; the hero demo still runs but only fades (no sweeping or sliding).
+
+### 9. Animate transform/opacity only
+The hero demo pauses off-screen or in a hidden tab (IntersectionObserver +
+`visibilitychange`) and starts slightly before it scrolls into view on phones.
+
+### 10. Images and fonts
+Icons are served at real size; photos have 600/800/full `srcset` variants; the OG
+image is a 1200×630 JPG. Inter is a Latin/Latin-Ext subset with metric-matched
+fallbacks (CLS 0) — check Turkish glyphs after re-subsetting.
+
+### 11. No model identity or attribution in repository artefacts
+No model IDs or "Generated with" lines in commits, PRs, code comments or files.
+
+---
+
+## Release = four separate states
+1. Source verified (`node tools/build.mjs --check && node tools/verify.mjs`).
+2. Clean output staged (`bash tools/stage.sh`: no `tools/`, `.github/`, docs).
+3. Upload actually completed.
+4. Live acceptance passed (`?v=N`, `/en/`, `/tr/`, `/support/`, `/privacy` rewrite,
+   404, security headers, CSP without console errors).
+
+A push is not a release. Green CI with a red live check is "uploaded, not accepted".
+
+## Form delivery (Web3Forms trap)
+If the target address is not verified in Web3Forms, the API still answers "success"
+but no mail is delivered. A form change is only done when a live submission was seen
+arriving in the inbox.
+
+## Parallel agents
+Other sessions or Codex PRs may work in this repo. Commit only your own paths; before
+pushing run `git fetch` + `git rev-list --left-right --count HEAD...origin/main`.
+
+## Working style
+The owner writes short Turkish requests; repository artefacts (issues, docs, commits)
+are in English. Each round: change → verify locally → commit → merge → verify live →
+one-paragraph summary. No emoji in the UI (SVG icons). Missing information never
+blocks work: use a placeholder and open a GitHub issue.

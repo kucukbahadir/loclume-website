@@ -4,28 +4,48 @@ Marketing site for [Loclume](https://loclume.com) — inventory verification tha
 
 ## Stack
 
-Zero-build static site: HTML + CSS + vanilla JS. No framework, no build step.
+Static site: HTML + CSS + vanilla JS, no framework and no runtime dependencies. A small Node script
+prerenders the language versions, so every language has its own indexable URL.
 
-- `index.html` — main page (Dutch in HTML, English via `assets/js/i18n.js`)
-- `privacy.html`, `cookies.html`, `terms.html` — bilingual legal pages (`data-legal-lang` blocks)
-- `assets/js/config.js` — Web3Forms key, GA id, endpoints (single source)
-- Fonts self-hosted (Manrope + Inter variable woff2), GDPR-clean
-- Cookie consent is opt-in; GA loads only after statistics consent
+| URL | Source |
+| --- | --- |
+| `/` (Dutch) | `index.html` — hand-edited source of the home page |
+| `/en/`, `/tr/` | generated from `index.html` + `tools/i18n-pages.json` |
+| `/privacy.html`, `/cookies.html`, `/terms.html` | generated from `tools/content/<page>.<lang>.html` (NL/EN/TR switch on one URL) |
+| `/support/`, `/support/account-deletion/` | same, from `tools/content/support.*` and `account-deletion.*` (required by the Play Store / App Store listing) |
+| `/privacy`, `/cookies`, `/terms` | clean-URL rewrites in `.htaccess` |
+
+Other files:
+
+- `assets/js/i18n.js` — runtime strings (menu labels, form messages, hero demo) + language preference and first-visit browser-language redirect (never for crawlers)
+- `assets/js/app.js` — nav, scroll-spy, reveal, cookie consent, contact form (Web3Forms), hero scan demo
+- `assets/js/legal.js` — language switch on the document pages
+- `assets/js/config.js` — Web3Forms key, GA id (single source)
+- Fonts are self-hosted (Manrope + Inter variable woff2). Cookie consent is opt-in; GA loads only after statistics consent, and the banner only appears once a GA id is configured.
+
+## Commands
+
+```bash
+node tools/build.mjs          # regenerate /en/, /tr/, JSON-LD and the document pages
+node tools/verify.mjs         # release gate: links, SEO, hreflang, i18n coverage, CSP, sitemap
+node tools/serve.mjs          # local preview on :8641 with the production headers (CSP) and rewrites
+bash tools/stage.sh           # clean dist/ + dist.zip with public files only
+```
+
+CI (`.github/workflows/verify.yml`) runs the build check, the release gate and the staging step on every push and PR.
+
+## Editing content
+
+1. Dutch copy: edit `index.html`. Every translatable element carries `data-i18n="key"` (or `data-i18n-attr="attr:key"`).
+2. English/Turkish: edit the same key in `tools/i18n-pages.json`.
+3. Legal/support text: edit `tools/content/*.html`.
+4. Run `node tools/build.mjs && node tools/verify.mjs`.
+5. When CSS/JS changes, bump `?v=N` in `index.html` (the build copies it to every page).
+
+Product claims must match the app repository (`kucukbahadir/Loclume`, `PRODUCT.md`): no invented benchmarks, testimonials or customer logos.
 
 ## Workflow
 
-- `develop` — integration branch
-- `main` — production, auto-deployed to Hostinger (`public_html`) via Git deploy
-- Cache busting: all CSS/JS references use `?v=N`; bump N on every asset change (index, privacy, cookies, terms, 404)
-- CSP (`.htaccess`) allows **no inline scripts** except the one-liner `document.documentElement.classList.add("js")` in `index.html`, whitelisted by its sha256 hash. Change that script → recompute the hash (`echo -n '<script body>' | openssl dgst -sha256 -binary | base64`) and update `.htaccess`. All other JS lives in `assets/js/`.
-- Fonts: `Inter-Variable.woff2` is a Latin + Latin-Extended subset (NL/EN/TR), optical-size axis pinned at 14 (342 KB → 70 KB). Regenerate from the upstream Inter variable font with `pyftsubset` if more glyphs are ever needed.
-- Images: icons/logos are pre-sized (`favicon-32`, `apple-touch-icon`, `icon-192`, `loclume-mark-88`, `loclume-icon-104.webp`); content photos ship a `-600` variant for mobile via `srcset`; `og-image.jpg` is the 1200×630 social card.
-- Cookie banner only appears when `gaId` in `config.js` is set (no tracking → nothing to consent to). Footer "Cookievoorkeuren" always works; legal pages link to `index.html#cookies`.
-
-## Release
-
-```bash
-git checkout main && git merge develop && git push && git checkout develop
-```
-
-Then verify live: `curl -s https://loclume.com | grep '?v='`.
+- `develop` — integration branch; `main` — production
+- Deploy: `bash tools/stage.sh`, then upload `dist.zip` to Hostinger (static deploy of `public_html`). Once the Hostinger Git auto-deploy is connected, `.htaccess` also blocks repository-only paths as a safety net.
+- Verify live: `curl -s https://loclume.com | grep -o '?v=[0-9]*' | sort -u`
