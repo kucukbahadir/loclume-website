@@ -1,0 +1,5 @@
+# Skills this repository REQUIRES, sourced from the private weintensify-skills-library.
+# Names must exist in the library. Run: ~/weintensify-skills-library/bin/skills-project .
+skills:
+  - weintensify-website-builder
+  - web-perf
