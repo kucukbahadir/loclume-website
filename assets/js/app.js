@@ -149,6 +149,11 @@
   /* ---------- Contact form (Web3Forms) ---------- */
   const form = $("#contactForm");
   if (form) {
+    // A pricing button remembers the chosen plan; it travels with the message
+    $$("[data-plan]").forEach(b => b.addEventListener("click", () => {
+      const plan = $("#cf-plan");
+      if (plan) plan.value = b.getAttribute("data-plan");
+    }));
     const status = $("#formStatus");
     const okIcon = '<svg aria-hidden="true"><use href="#i-check"/></svg>';
     const fields = $$("input[required], textarea[required]", form);

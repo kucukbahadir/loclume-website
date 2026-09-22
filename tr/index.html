@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title data-i18n="meta.title">Loclume — Stockitup için hızlı stok sayımı</title>
-<meta name="description" data-i18n-attr="content:meta.desc" content="Rafı okut, ürünleri okut; Loclume sayımı Stockitup ile karşılaştırır. Masa başına dönmeden hızlı stok sayımı ve raf değişimi. 7 gün ücretsiz dene.">
+<meta name="description" data-i18n-attr="content:meta.desc" content="Rafı okut, ürünleri okut; Loclume sayımı Stockitup ile karşılaştırır. Masa başına dönmeden hızlı stok sayımı ve raf değişimi. 14 gün ücretsiz.">
 <link rel="canonical" href="https://loclume.com/tr/" data-self-url>
 <link rel="alternate" hreflang="nl" href="https://loclume.com/">
 <link rel="alternate" hreflang="en" href="https://loclume.com/en/">
@@ -35,8 +35,8 @@
 <link rel="preconnect" href="https://api.web3forms.com" crossorigin>
 <link rel="preload" href="/assets/fonts/Manrope-Variable.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/Inter-Variable.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/css/style.css?v=9">
-<script src="/assets/js/i18n.js?v=9"></script>
+<link rel="stylesheet" href="/assets/css/style.css?v=10">
+<script src="/assets/js/i18n.js?v=10"></script>
 <!-- ld:start -->
 <script type="application/ld+json">
 {
@@ -52,12 +52,29 @@
       "image": "https://loclume.com/assets/img/og-image.jpg",
       "inLanguage": "tr",
       "description": "Loclume modern bir stok doğrulama uygulamasıdır: rafları ve ürünleri barkod okuyucu veya telefonla okut, fiziksel sayımı Stockitup ile karşılaştır ve farkları güvenle çöz.",
-      "offers": {
-        "@type": "Offer",
-        "price": "30.00",
-        "priceCurrency": "EUR",
-        "description": "Şirket başına aylık abonelik, KDV hariç, 7 günlük ücretsiz denemeden sonra"
-      },
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Loclume Starter",
+          "price": "49.00",
+          "priceCurrency": "EUR",
+          "description": "Şirket başına aylık, KDV hariç, 14 günlük ücretsiz denemeden sonra"
+        },
+        {
+          "@type": "Offer",
+          "name": "Loclume Pro",
+          "price": "99.00",
+          "priceCurrency": "EUR",
+          "description": "Şirket başına aylık, KDV hariç, 14 günlük ücretsiz denemeden sonra"
+        },
+        {
+          "@type": "Offer",
+          "name": "Loclume Business",
+          "price": "199.00",
+          "priceCurrency": "EUR",
+          "description": "Şirket başına aylık, KDV hariç, 14 günlük ücretsiz denemeden sonra"
+        }
+      ],
       "publisher": {
         "@id": "https://loclume.com/#org"
       }
@@ -146,7 +163,7 @@
           "name": "Loclume ne kadar?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Önce Loclume'u 7 gün ücretsiz denersin. Sonrasında şirket başına ayda 30 € (KDV hariç), aylık iptal edilebilir. Sınırsız sayım, raf değişimi, Stockitup bağlantısı ve denetim izi dahildir."
+            "text": "Önce Loclume'u 14 gün ücretsiz denersin, kredi kartı gerekmez. Sonra Starter (ayda 49 €, 1 lokasyon, 3 kullanıcı), Pro (99 €, 3 lokasyon, 10 kullanıcı) veya Business (199 €, sınırsız) seçersin. Fiyatlar şirket başınadır, KDV hariç, aylık iptal edilebilir; yıllık ödemede 2 ay bedava."
           }
         },
         {
@@ -519,25 +536,53 @@
   <div class="container">
     <div class="section-head reveal" style="text-align:center;margin-left:auto;margin-right:auto">
       <span class="kicker" data-i18n="pr.kicker">Fiyat</span>
-      <h2 id="pr-title" data-i18n="pr.title">Tek ve net fiyat</h2>
-      <p data-i18n="pr.sub">Modül yok, sürpriz yok. Aylık iptal edilebilir.</p>
+      <h2 id="pr-title" data-i18n="pr.title">Şirket başına tek fiyat, sürpriz yok</h2>
+      <p data-i18n="pr.sub">Lokasyonlarına uyan paketi seç. 14 gün ücretsiz, kredi kartı gerekmez, aylık iptal edilebilir.</p>
     </div>
-    <div class="pricing-wrap reveal">
-      <div class="price-card">
-        <div class="pc-plan" data-i18n="pr.plan">Loclume Komple</div>
-        <div class="pc-trial"><svg width="15" height="15"><use href="#i-check"/></svg><span data-i18n="pr.trial">7 gün ücretsiz deneme</span></div>
-        <div class="pc-amount"><b>€30</b><span data-i18n="pr.per">aylık, şirket başına</span></div>
-        <div class="pc-note" data-i18n="pr.note">deneme süresinden sonra · KDV hariç · aylık iptal edilebilir</div>
+    <div class="pricing-grid stagger">
+      <div class="price-card reveal">
+        <h3 class="pc-plan">Starter</h3>
+        <p class="pc-for" data-i18n="pr.s.for">Tek mağaza veya depo için</p>
+        <div class="pc-amount"><b>€49</b><span data-i18n="pr.per">aylık</span></div>
+        <p class="pc-note" data-i18n="pr.s.year">veya yıllık 490 € (2 ay bedava)</p>
         <ul class="checklist">
-          <li><svg><use href="#i-check"/></svg><span data-i18n="pr.i1">Sınırsız sayım ve raf değişimi</span></li>
-          <li><svg><use href="#i-check"/></svg><span data-i18n="pr.i2">Durum kontrollü Stockitup bağlantısı</span></li>
-          <li><svg><use href="#i-check"/></svg><span data-i18n="pr.i3">Web, Android ve iOS</span></li>
-          <li><svg><use href="#i-check"/></svg><span data-i18n="pr.i4">Roller, yetkiler, çoklu mağaza ve denetim izi</span></li>
-          <li><svg><use href="#i-check"/></svg><span data-i18n="pr.i5">E-postayla kişisel destek</span></li>
+          <li><svg><use href="#i-check"/></svg><span data-i18n="pr.s.i1">1 mağaza veya depo</span></li>
+          <li><svg><use href="#i-check"/></svg><span data-i18n="pr.s.i2">3 kullanıcıya kadar</span></li>
+          <li><svg><use href="#i-check"/></svg><span data-i18n="pr.s.i3">Sınırsız sayım ve raf değişimi</span></li>
         </ul>
-        <a class="btn btn-primary" href="#contact" data-i18n="pr.cta">Ücretsiz denemeni başlat</a>
-        <div class="pc-appsoon"><span class="dot"></span><span data-i18n="pr.appsoon">Uygulama çok yakında — demo talep et, lansmanda haber verelim</span></div>
+        <a class="btn btn-ghost" href="#contact" data-plan="Starter" data-i18n="pr.cta">14 gün ücretsiz başla</a>
       </div>
+      <div class="price-card featured reveal">
+        <span class="pc-badge" data-i18n="pr.badge">Önerilen</span>
+        <h3 class="pc-plan">Pro</h3>
+        <p class="pc-for" data-i18n="pr.p.for">Birden fazla lokasyonu olan büyüyen ekipler için</p>
+        <div class="pc-amount"><b>€99</b><span data-i18n="pr.per">aylık</span></div>
+        <p class="pc-note" data-i18n="pr.p.year">veya yıllık 990 € (2 ay bedava)</p>
+        <ul class="checklist">
+          <li><svg><use href="#i-check"/></svg><span data-i18n="pr.p.i1">3 mağaza veya depoya kadar</span></li>
+          <li><svg><use href="#i-check"/></svg><span data-i18n="pr.p.i2">10 kullanıcıya kadar</span></li>
+          <li><svg><use href="#i-check"/></svg><span data-i18n="pr.p.i3">Lokasyon bazında yetkiler ve çalışma alanı geçişi</span></li>
+        </ul>
+        <a class="btn btn-primary" href="#contact" data-plan="Pro" data-i18n="pr.cta">14 gün ücretsiz başla</a>
+      </div>
+      <div class="price-card reveal">
+        <h3 class="pc-plan">Business</h3>
+        <p class="pc-for" data-i18n="pr.b.for">Büyük depolar ve zincirler için</p>
+        <div class="pc-amount"><b>€199</b><span data-i18n="pr.per">aylık</span></div>
+        <p class="pc-note" data-i18n="pr.b.year">veya yıllık 1.990 € (2 ay bedava)</p>
+        <ul class="checklist">
+          <li><svg><use href="#i-check"/></svg><span data-i18n="pr.b.i1">Sınırsız mağaza ve depo</span></li>
+          <li><svg><use href="#i-check"/></svg><span data-i18n="pr.b.i2">Sınırsız kullanıcı</span></li>
+          <li><svg><use href="#i-check"/></svg><span data-i18n="pr.b.i3">Öncelikli destek</span></li>
+        </ul>
+        <a class="btn btn-ghost" href="#contact" data-plan="Business" data-i18n="pr.cta">14 gün ücretsiz başla</a>
+      </div>
+    </div>
+    <div class="pricing-foot reveal">
+      <p class="pf-all"><b data-i18n="pr.all">Her pakette:</b> <span data-i18n="pr.alllist">Durum kontrollü Stockitup bağlantısı · web, Android ve iOS · roller ve denetim izi · e-postayla kişisel destek</span></p>
+      <p class="pf-note" data-i18n="pr.note">Fiyatlar şirket başınadır, KDV hariç. Aylık iptal edilebilir.</p>
+      <p class="pf-founding"><span class="dot"></span><span data-i18n="pr.founding">Lansman teklifi: ilk 20 şirket ilk yıl %50 indirim alır.</span></p>
+      <p class="pf-note" data-i18n="pr.appsoon">Uygulama çok yakında — demo talep et, lansmanda haber verelim.</p>
     </div>
   </div>
 </section>
@@ -564,7 +609,7 @@
       </details>
       <details>
         <summary><span data-i18n="faq.q4">Loclume ne kadar?</span><svg class="chev" width="18" height="18"><use href="#i-chev"/></svg></summary>
-        <div class="faq-a" data-i18n="faq.a4">Önce Loclume'u 7 gün ücretsiz denersin. Sonrasında şirket başına ayda 30 € (KDV hariç), aylık iptal edilebilir. Sınırsız sayım, raf değişimi, Stockitup bağlantısı ve denetim izi dahildir.</div>
+        <div class="faq-a" data-i18n="faq.a4">Önce Loclume'u 14 gün ücretsiz denersin, kredi kartı gerekmez. Sonra Starter (ayda 49 €, 1 lokasyon, 3 kullanıcı), Pro (99 €, 3 lokasyon, 10 kullanıcı) veya Business (199 €, sınırsız) seçersin. Fiyatlar şirket başınadır, KDV hariç, aylık iptal edilebilir; yıllık ödemede 2 ay bedava.</div>
       </details>
       <details>
         <summary><span data-i18n="faq.q5">Stockitup bağlantım ne kadar güvenli?</span><svg class="chev" width="18" height="18"><use href="#i-chev"/></svg></summary>
@@ -608,6 +653,7 @@
         <label for="cf-message"><span data-i18n="ct.msg">Mesaj</span> <span class="req" aria-hidden="true">*</span></label>
         <textarea id="cf-message" name="message" required maxlength="4000"></textarea>
       </div>
+      <input type="hidden" name="plan" id="cf-plan" value="">
       <label class="hp-field" aria-hidden="true">
         <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off">
       </label>
@@ -684,7 +730,7 @@
   </div>
 </div>
 
-<script src="/assets/js/config.js?v=9"></script>
-<script src="/assets/js/app.js?v=9"></script>
+<script src="/assets/js/config.js?v=10"></script>
+<script src="/assets/js/app.js?v=10"></script>
 </body>
 </html>

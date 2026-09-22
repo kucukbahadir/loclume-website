@@ -74,7 +74,7 @@ function jsonLd(lang, html) {
       image: ORIGIN + "/assets/img/og-image.jpg",
       inLanguage: lang,
       description: str(lang, "ld.desc"),
-      offers: { "@type": "Offer", price: "30.00", priceCurrency: "EUR", description: str(lang, "ld.offer") },
+      offers: [["Starter", "49.00"], ["Pro", "99.00"], ["Business", "199.00"]].map(([name, price]) => ({ "@type": "Offer", name: `Loclume ${name}`, price, priceCurrency: "EUR", description: str(lang, "ld.offer") })),
       publisher: { "@id": ORIGIN + "/#org" }
     },
     {
