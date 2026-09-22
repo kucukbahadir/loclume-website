@@ -12,7 +12,7 @@
 - Roles: owner, admin, supervisor, operator.
 - Hardware: phone camera, Android scanner terminals with a built-in reader, existing HID/Bluetooth/USB scanners (keyboard wedge, Enter suffix).
 - Security: Stockitup credentials are stored encrypted server-side and never readable from the app; camera images are never stored or uploaded.
-- Pricing: 7-day free trial, then €30 per month per company, excl. VAT, cancel monthly.
+- Pricing (per company, excl. VAT, cancel monthly; 14-day free trial, no card): Starter €49/month (1 location, 3 users), Pro €99/month (3 locations, 10 users), Business €199/month (unlimited). Yearly = 10× monthly. Founding customers: first 20 companies get 50% off in year one.
 - Platforms: Web, Android, iOS (mobile apps launching soon).
 - Website languages: Dutch (primary), English, Turkish.
 - Contact: info@loclume.com
