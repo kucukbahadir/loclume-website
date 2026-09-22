@@ -1,21 +1,30 @@
 # Loclume
 
-> Loclume is a modern inventory-verification SaaS by WeIntensify B.V. (Alkmaar, the Netherlands). Operators scan a shelf and its products with a barcode scanner, an Android scanner terminal or a phone camera; Loclume compares the physical count with Stockitup (the Dutch e-commerce inventory system) and lets an authorised user resolve differences safely. It complements Stockitup, it does not replace it.
+> Loclume is an inventory-verification app by WeIntensify B.V. (Alkmaar, the Netherlands). Operators scan a shelf and its products with a barcode scanner, an Android scanner terminal or a phone camera; Loclume compares the physical count with Stockitup (the Dutch e-commerce inventory system) and lets an authorised user approve corrections, which are then written back. It complements Stockitup, it does not replace it, and it is not affiliated with Stockitup.
 
 ## Key facts
 
-- Product: shelf counting, bulk shelf moves, product lookup, offline counting, roles and permissions, full audit trail, multi-tenant.
-- Works with: Stockitup (stockitup.nl) as the system of record; approved corrections are written back.
-- Hardware: phone camera, Android scanner terminals, existing HID/Bluetooth/USB scanners (keyboard wedge).
-- Pricing: €30 per month per company, excl. VAT, cancel monthly.
-- Platforms: Web, Android, iOS (app launching soon).
-- Languages: Dutch (primary), English.
+- Counting: scan the shelf barcode, then scan products back to back; repeated EANs are grouped into quantities automatically; undo last scan.
+- Comparison: per shelf against Stockitup (correct, missing, unexpected); Loclume first checks other registered locations before proposing a correction.
+- Safety: nothing changes in Stockitup without explicit confirmation; writes are retry-safe; every change is logged with old value, new value, user, date and count session.
+- Resume anywhere: unfinished counts are kept on the device and continue on the same or another device; a count lock prevents two devices from clashing. When the connection drops, the count is kept safe and syncs when the connection returns.
+- Other features: bulk shelf moves (scanned quantity or all stock, split across shelves), product lookup by EAN, Stockitup product code or SKU, shelf check (products Stockitup expects on the shelf that were not scanned), fast mode, multiple stores/workspaces, email team invitations.
+- Roles: owner, admin, supervisor, operator.
+- Hardware: phone camera, Android scanner terminals with a built-in reader, existing HID/Bluetooth/USB scanners (keyboard wedge, Enter suffix).
+- Security: Stockitup credentials are stored encrypted server-side and never readable from the app; camera images are never stored or uploaded.
+- Pricing: 7-day free trial, then €30 per month per company, excl. VAT, cancel monthly.
+- Platforms: Web, Android, iOS (mobile apps launching soon).
+- Website languages: Dutch (primary), English, Turkish.
 - Contact: info@loclume.com
-- Company: WeIntensify B.V., Kanaalkade 57, 1811 LS Alkmaar, the Netherlands.
+- Company: WeIntensify B.V., Kanaalkade 57, 1811 LS Alkmaar, the Netherlands (KvK 98895982, VAT NL868691574B01).
 
 ## Pages
 
-- https://loclume.com/ — main site (how it works, Stockitup integration, features, scenarios, hardware, pricing, FAQ, contact)
-- https://loclume.com/privacy.html — privacy statement
+- https://loclume.com/ — main site in Dutch (how it works, Stockitup integration, features, scenarios, hardware, pricing, FAQ, contact)
+- https://loclume.com/en/ — main site in English
+- https://loclume.com/tr/ — main site in Turkish
+- https://loclume.com/support/ — support
+- https://loclume.com/support/account-deletion/ — account deletion
+- https://loclume.com/privacy.html — privacy statement (website and app)
 - https://loclume.com/cookies.html — cookie statement
 - https://loclume.com/terms.html — terms and conditions

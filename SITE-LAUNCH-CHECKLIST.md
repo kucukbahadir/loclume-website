@@ -1,28 +1,33 @@
 # Loclume.com — Launch Checklist
 
-🤖 = Claude, 👤 = Bahadır
+🤖 = Claude, 👤 = Bahadır. Open items are tracked as GitHub issues.
 
-## Vóór livegang
-- [x] 🤖 Zero-build site: index + legal + 404
-- [x] 🤖 NL hoofdtaal + EN woordenboek, taalkeuze in nav
+## Before launch
+- [x] 🤖 Static site: home + legal + 404
+- [x] 🤖 Dutch main language, English and Turkish on their own URLs (`/en/`, `/tr/`) with hreflang (22 Sep 2026)
 - [x] 🤖 Self-hosted fonts (Manrope + Inter woff2)
 - [x] 🤖 Cookie consent opt-in + GA gated
-- [x] 🤖 JSON-LD (SoftwareApplication, Organization, WebSite, FAQPage)
-- [x] 🤖 sitemap.xml, robots.txt (incl. AI crawlers), llms.txt
-- [x] 🤖 .htaccess: 301 www→apex, security headers, cache, 404
-- [x] 👤 Web3Forms access key aangemaakt → in `assets/js/config.js` (1 sep 2026)
-- [x] 👤 Web3Forms e-mail geverifieerd (1 sep 2026)
-- [x] 👤 info@loclume.com mailbox + Gmail-forwarder actief (MX/SPF live, 1 sep 2026)
-- [x] 🤖 Deploy naar Hostinger (MCP static deploy, 1 sep 2026) — Git auto-deploy webhook nog te koppelen voor volgende releases
+- [x] 🤖 JSON-LD (SoftwareApplication, Organization, WebSite, WebPage, FAQPage) per language
+- [x] 🤖 sitemap.xml with hreflang, robots.txt (incl. AI crawlers), llms.txt
+- [x] 🤖 .htaccess: 301 www→apex, security headers, cache, 404, clean URLs, no directory listing
+- [x] 👤 Web3Forms access key in `assets/js/config.js` (1 Sep 2026)
+- [x] 👤 Web3Forms email verified (1 Sep 2026)
+- [x] 👤 info@loclume.com mailbox + Gmail forwarder active (MX/SPF live, 1 Sep 2026)
+- [x] 🤖 Deploy to Hostinger (MCP static deploy, 1 Sep 2026)
+- [x] 🤖 App-store pages: `/support/`, `/support/account-deletion/`, `/privacy` (22 Sep 2026)
+- [x] 🤖 Copy checked against the app repository (PRODUCT.md): removed unverified claims (22 Sep 2026)
+- [x] 🤖 CI: build check + release gate + staging (22 Sep 2026)
 
-## Na livegang
-- [x] 🤖 Live verificatie: ?v=1 ✓, www→apex 301 ✓, sitemap/robots/llms 200 ✓, CSP/HSTS/XCTO/XFO ✓, 404 ✓
-- [x] 🤖 .htaccess bewijs-test: rewrite ✓ (www 301), ErrorDocument ✓ (eigen 404-pagina), mod_expires ✓ (img 6mnd / css 1wk / woff2 1jr)
-- [x] 🤖 Formulier live getest → TEST-mail in inbox bevestigd (Gmail-forward 09:10, 1 sep 2026)
-- [ ] 👤 Google Search Console (Domain property, DNS TXT) + sitemap indienen
-- [ ] 👤 Bing Webmaster: Import from GSC
-- [ ] 👤 GA4 property aanmaken → id in config.js (🤖 daarna deploy)
-- [ ] 🤖 DNS check: SPF/DKIM/DMARC voor loclume.com
-- [ ] 🤖 ops/uptime-check.sh: loclume.com|Loclume regel toevoegen (VPS cron, Telegram MonitorWeIntensify)
-- [ ] 🤖 securityheaders.com → doel A/A+
-- [ ] 👤 PageSpeed test in eigen Chrome (doel: mobiel 95+, desktop 100)
+## After launch
+- [x] 🤖 Live verification: ?v ✓, www→apex 301 ✓, sitemap/robots/llms 200 ✓, CSP/HSTS/XCTO/XFO ✓, 404 ✓
+- [x] 🤖 .htaccess proof test: rewrite ✓, ErrorDocument ✓, mod_expires ✓
+- [x] 🤖 Form tested live → TEST mail confirmed in inbox (1 Sep 2026)
+- [ ] 👤 Google Search Console (Domain property, DNS TXT) + submit sitemap
+- [ ] 👤 Bing Webmaster Tools: import from GSC
+- [ ] 👤 GA4 property → id in config.js (🤖 then deploy)
+- [x] 🤖 KvK 98895982 + VAT NL868691574B01 in imprint, privacy, terms, JSON-LD (22 Sep 2026)
+- [x] 🤖 DNS: SPF, DKIM (Hostinger a/b/c + Brevo brevo1/brevo2), DMARC p=quarantine (22 Sep 2026)
+- [ ] 👤 Brevo: click Authenticate for loclume.com (#25)
+- [ ] 👤 Connect Hostinger Git auto-deploy (or keep the staged zip deploy)
+- [ ] 🤖 ops/uptime-check.sh: add `loclume.com|Loclume` (VPS cron, Telegram MonitorWeIntensify)
+- [ ] 👤 securityheaders.com + PageSpeed in your own Chrome (Hostinger CDN blocks headless)

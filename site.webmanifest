@@ -1,0 +1,27 @@
+{
+  "name": "Loclume",
+  "short_name": "Loclume",
+  "description": "Fast stock counts with a barcode scanner, compared with Stockitup.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "browser",
+  "background_color": "#151811",
+  "theme_color": "#151811",
+  "icons": [
+    {
+      "src": "/assets/img/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/img/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/img/loclume-mark.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
