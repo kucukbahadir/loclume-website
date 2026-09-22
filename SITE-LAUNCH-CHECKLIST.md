@@ -25,7 +25,9 @@
 - [ ] 👤 Google Search Console (Domain property, DNS TXT) + submit sitemap
 - [ ] 👤 Bing Webmaster Tools: import from GSC
 - [ ] 👤 GA4 property → id in config.js (🤖 then deploy)
-- [ ] 👤 KvK and VAT number for the imprint
+- [x] 🤖 KvK 98895982 + VAT NL868691574B01 in imprint, privacy, terms, JSON-LD (22 Sep 2026)
+- [x] 🤖 DNS: SPF, DKIM (Hostinger a/b/c + Brevo brevo1/brevo2), DMARC p=quarantine (22 Sep 2026)
+- [ ] 👤 Brevo: click Authenticate for loclume.com (#25)
 - [ ] 👤 Connect Hostinger Git auto-deploy (or keep the staged zip deploy)
 - [ ] 🤖 ops/uptime-check.sh: add `loclume.com|Loclume` (VPS cron, Telegram MonitorWeIntensify)
 - [ ] 👤 securityheaders.com + PageSpeed in your own Chrome (Hostinger CDN blocks headless)
