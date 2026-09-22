@@ -87,7 +87,7 @@ for (const lang of ["en", "tr"]) {
   for (const k of Object.keys(dict[lang])) ok(keys.has(k) || LD_KEYS.includes(k), `i18n: ${lang} has unused key "${k}"`);
 }
 for (const k of LD_KEYS) ok(dict.nl && dict.nl[k], `i18n: nl is missing "${k}"`);
-const sandbox = { window: {}, document: { documentElement: { classList: { add() {} }, lang: "en" }, addEventListener() {} }, location: { pathname: "/en/" }, navigator: { userAgent: "" }, localStorage: { getItem() {} } };
+const sandbox = { window: { addEventListener() {} }, document: { documentElement: { classList: { add() {} }, lang: "en" }, addEventListener() {} }, location: { pathname: "/en/" }, navigator: { userAgent: "" }, localStorage: { getItem() {} } };
 vm.runInNewContext(read("assets/js/i18n.js"), sandbox);
 const t = sandbox.window.LOCLUME_I18N;
 ok(t && t.t("rt.sent") !== "rt.sent", "i18n.js: runtime strings not available");

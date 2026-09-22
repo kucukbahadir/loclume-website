@@ -1,5 +1,6 @@
 /* Loclume site behaviour: nav, scroll-spy, reveal, cookie consent, contact form, hero scan scene. */
 (function () {
+  window.LOCLUME_APP = true;
   const $ = (s, r) => (r || document).querySelector(s);
   const $$ = (s, r) => Array.from((r || document).querySelectorAll(s));
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;

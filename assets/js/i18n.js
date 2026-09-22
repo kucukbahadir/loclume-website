@@ -6,6 +6,8 @@
 (function () {
   var root = document.documentElement;
   root.classList.add("js");
+  // Safety net: if app.js never runs (blocked/failed download), show the reveal content anyway
+  window.addEventListener("load", function () { if (!window.LOCLUME_APP) root.classList.remove("js"); });
 
   var RT = {
     nl: {
