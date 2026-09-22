@@ -35,8 +35,8 @@
 <link rel="preconnect" href="https://api.web3forms.com" crossorigin>
 <link rel="preload" href="/assets/fonts/Manrope-Variable.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/Inter-Variable.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/css/style.css?v=8">
-<script src="/assets/js/i18n.js?v=8"></script>
+<link rel="stylesheet" href="/assets/css/style.css?v=9">
+<script src="/assets/js/i18n.js?v=9"></script>
 <!-- ld:start -->
 <script type="application/ld+json">
 {
@@ -73,6 +73,12 @@
         "@type": "Organization",
         "name": "WeIntensify B.V.",
         "url": "https://weintensify.com/",
+        "vatID": "NL868691574B01",
+        "identifier": {
+          "@type": "PropertyValue",
+          "propertyID": "KvK",
+          "value": "98895982"
+        },
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "Kanaalkade 57",
@@ -121,10 +127,10 @@
         },
         {
           "@type": "Question",
-          "name": "Hangi tarayıcıları kullanabilirim?",
+          "name": "Hangi barkod okuyucuları kullanabilirim?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Üç seçenek: telefonunun kamerası, dahili okuyuculu bir el terminalinde aynı Loclume Android uygulaması (Zebra TC22 gibi) veya barkodları klavye girdisi olarak Enter ile gönderen mevcut bir HID/Bluetooth/USB tarayıcı. Seri okutma üçüyle de çalışır."
+            "text": "Üç seçenek: telefonunun kamerası, dahili okuyuculu bir el terminalinde aynı Loclume Android uygulaması veya barkodları klavye girdisi olarak Enter ile gönderen mevcut bir HID/Bluetooth/USB barkod okuyucu. Seri okutma üçüyle de çalışır."
           }
         },
         {
@@ -329,7 +335,7 @@
       </div>
       <div class="step reveal">
         <h3 data-i18n="how.s4t">Farklar açıklanır</h3>
-        <p data-i18n="how.s4p">Loclume nedeni araştırır: üçüncü kopya C-22 rafında mı kayıtlı? Bunu görürsün.</p>
+        <p data-i18n="how.s4p">Loclume nedeni araştırır: üçüncü adet C-22 rafında mı kayıtlı? Bunu görürsün.</p>
       </div>
       <div class="step reveal">
         <h3 data-i18n="how.s5t">Sen karar verirsin, Loclume uygular</h3>
@@ -345,10 +351,10 @@
     <div class="reveal">
       <span class="kicker" data-i18n="siu.kicker">Stockitup kullanıcıları için</span>
       <h2 id="siu-title" data-i18n="siu.title">Patron Stockitup kalır. Saha işini Loclume yapar.</h2>
-      <p style="color:var(--d-muted);font-size:16px" data-i18n="siu.sub">Loclume yeni bir ERP değil, bir ikame de değil. Sahadaki eksik operasyon katmanıdır: sayma, kontrol ve düzeltmeyi o kadar hızlandırır ki Stockitup'taki stoğun nihayet hep doğru olur.</p>
+      <p style="color:var(--d-muted);font-size:16px" data-i18n="siu.sub">Loclume yeni bir ERP değil ve Stockitup'ın yerine geçmez. Sahadaki eksik operasyon katmanıdır: sayma, kontrol ve düzeltmeyi o kadar hızlandırır ki Stockitup'taki stoğun nihayet hep doğru olur.</p>
       <ul class="checklist">
         <li><svg><use href="#i-check"/></svg><span><b data-i18n="siu.c1b">Dakikalar içinde güvenli bağlantı</b><span data-i18n="siu.c1s">Kendi API bilgilerini gir, doğrula, bitti. Gizli anahtarlar sunucu tarafında kalır, uygulamadan okunamaz.</span></span></li>
-        <li><svg><use href="#i-check"/></svg><span><b data-i18n="siu.c2b">Raf başına karşılaştırma</b><span data-i18n="siu.c2s">Sistem 3 diyor, sen 2 mi saydın? Loclume önce üçüncü kopyanın başka yerde kayıtlı olup olmadığına bakar.</span></span></li>
+        <li><svg><use href="#i-check"/></svg><span><b data-i18n="siu.c2b">Raf başına karşılaştırma</b><span data-i18n="siu.c2s">Sistem 3 diyor, sen 2 mi saydın? Loclume önce üçüncü adedin başka bir yerde kayıtlı olup olmadığına bakar.</span></span></li>
         <li><svg><use href="#i-check"/></svg><span><b data-i18n="siu.c3b">Tek onayla düzeltme</b><span data-i18n="siu.c3s">Stoğu güncelle veya lokasyonu düzelt: yalnızca senin onayınla ve bağlantı aksarsa güvenle yeniden denenebilir şekilde.</span></span></li>
       </ul>
       <div class="flow-line" aria-hidden="true">
@@ -441,7 +447,7 @@
             <div class="cmp"><b>3</b><span data-i18n="sc.sys">sistem</span></div>
             <div class="cmp"><b>2</b><span data-i18n="sc.cnt">sayılan</span></div>
           </div>
-          <p data-i18n="sc.1p">Loclume üçüncü kopyanın B-03 rafında kayıtlı olduğunu bulur ve önerir: stoğu düşmeden önce B-03'ü kontrol et.</p>
+          <p data-i18n="sc.1p">Loclume üçüncü adedin B-03 rafında kayıtlı olduğunu bulur ve önerir: stoktan düşmeden önce B-03'ü kontrol et.</p>
           <div class="sc-fix"><svg><use href="#i-pin"/></svg><span data-i18n="sc.1f">Öneri: B-03'ü kontrol et · hiçbir şey sessizce değiştirilmez</span></div>
         </div>
       </div>
@@ -452,7 +458,7 @@
             <div class="cmp"><b>0</b><span data-i18n="sc.sys">sistem</span></div>
             <div class="cmp"><b>2</b><span data-i18n="sc.cnt">sayılan</span></div>
           </div>
-          <p data-i18n="sc.2p">Buraya ait olmayan iki kopya bulundu. Loclume nerede kayıtlı olduklarını kontrol eder ve seçenek sunar.</p>
+          <p data-i18n="sc.2p">Buraya ait olmayan iki adet bulundu. Loclume nerede kayıtlı olduklarını kontrol eder ve seçenek sunar.</p>
           <div class="sc-fix"><svg><use href="#i-move"/></svg><span data-i18n="sc.2f">Seçim: buraya taşı veya C-22'ye geri götür</span></div>
         </div>
       </div>
@@ -479,14 +485,14 @@
     </div>
     <div class="reveal">
       <span class="kicker" data-i18n="hw.kicker">Bilgisayarsız, laptopsuz</span>
-      <h2 id="hw-title" data-i18n="hw.title">Stok neredeyse orada say — bilgisayar neredeyse orada değil</h2>
+      <h2 id="hw-title" data-i18n="hw.title">Sayımı stoğun olduğu yerde yap, bilgisayarın başında değil</h2>
       <p style="color:var(--d-muted);font-size:16px" data-i18n="hw.sub">Android ve iOS için tek Loclume uygulaması: telefonuna veya dahili okuyuculu bir Android el terminaline kur. Yürü, okut, bitti. Karşılaştırma ve düzeltmeler yolda olur, sonradan masa başında değil.</p>
       <div class="hw-cards">
         <div class="hw-card">
           <div class="hw-icon"><svg><use href="#i-gun"/></svg></div>
           <div>
             <h3 data-i18n="hw.1t">El terminalinde Loclume Android uygulaması</h3>
-            <p data-i18n="hw.1p">Loclume Android uygulaması (çok yakında Play Store'da), Zebra TC22 gibi dahili okuyuculu bir Android el terminaline kurulur: büyük sayımlar ve günlük raf değişimleri için en hızlı seçenek.</p>
+            <p data-i18n="hw.1p">Loclume Android uygulaması (çok yakında Play Store'da), dahili okuyuculu bir Android el terminaline kurulur: büyük sayımlar ve günlük raf değişimleri için en hızlı seçenek.</p>
           </div>
         </div>
         <div class="hw-card">
@@ -499,8 +505,8 @@
         <div class="hw-card">
           <div class="hw-icon"><svg><use href="#i-keyboard"/></svg></div>
           <div>
-            <h3 data-i18n="hw.3t">Mevcut HID / Bluetooth / USB tarayıcı</h3>
-            <p data-i18n="hw.3p">Mevcut tarayıcın barkodları klavye girdisi olarak gönderir. Eşleştir ve seri okut; yeni yatırım gerekmez.</p>
+            <h3 data-i18n="hw.3t">Mevcut HID / Bluetooth / USB barkod okuyucu</h3>
+            <p data-i18n="hw.3p">Mevcut barkod okuyucun barkodları klavye girdisi olarak gönderir. Eşleştir ve seri okut; yeni yatırım gerekmez.</p>
           </div>
         </div>
       </div>
@@ -521,7 +527,7 @@
         <div class="pc-plan" data-i18n="pr.plan">Loclume Komple</div>
         <div class="pc-trial"><svg width="15" height="15"><use href="#i-check"/></svg><span data-i18n="pr.trial">7 gün ücretsiz deneme</span></div>
         <div class="pc-amount"><b>€30</b><span data-i18n="pr.per">aylık, şirket başına</span></div>
-        <div class="pc-note" data-i18n="pr.note">deneme süresinden sonra · KDV hariç · aylık iptal</div>
+        <div class="pc-note" data-i18n="pr.note">deneme süresinden sonra · KDV hariç · aylık iptal edilebilir</div>
         <ul class="checklist">
           <li><svg><use href="#i-check"/></svg><span data-i18n="pr.i1">Sınırsız sayım ve raf değişimi</span></li>
           <li><svg><use href="#i-check"/></svg><span data-i18n="pr.i2">Durum kontrollü Stockitup bağlantısı</span></li>
@@ -549,8 +555,8 @@
         <div class="faq-a" data-i18n="faq.a1">Hayır. Stockitup stok ve e-ticaret için ana sisteminiz olarak kalır. Loclume sahadaki operasyon katmanıdır: sayma, okutma, karşılaştırma ve farkları güvenle çözme. Onaylanan düzeltmeler Stockitup'a geri yazılır.</div>
       </details>
       <details>
-        <summary><span data-i18n="faq.q2">Hangi tarayıcıları kullanabilirim?</span><svg class="chev" width="18" height="18"><use href="#i-chev"/></svg></summary>
-        <div class="faq-a" data-i18n="faq.a2">Üç seçenek: telefonunun kamerası, dahili okuyuculu bir el terminalinde aynı Loclume Android uygulaması (Zebra TC22 gibi) veya barkodları klavye girdisi olarak Enter ile gönderen mevcut bir HID/Bluetooth/USB tarayıcı. Seri okutma üçüyle de çalışır.</div>
+        <summary><span data-i18n="faq.q2">Hangi barkod okuyucuları kullanabilirim?</span><svg class="chev" width="18" height="18"><use href="#i-chev"/></svg></summary>
+        <div class="faq-a" data-i18n="faq.a2">Üç seçenek: telefonunun kamerası, dahili okuyuculu bir el terminalinde aynı Loclume Android uygulaması veya barkodları klavye girdisi olarak Enter ile gönderen mevcut bir HID/Bluetooth/USB barkod okuyucu. Seri okutma üçüyle de çalışır.</div>
       </details>
       <details>
         <summary><span data-i18n="faq.q3">Depoda wifi koparsa ne olur?</span><svg class="chev" width="18" height="18"><use href="#i-chev"/></svg></summary>
@@ -581,7 +587,7 @@
       <p data-i18n="ct.sub">Demo talep et veya sorunu sor. Genellikle bir iş günü içinde yanıt veririz.</p>
       <div class="contact-detail"><svg><use href="#i-mail"/></svg><a href="mailto:info@loclume.com">info@loclume.com</a></div>
       <div class="contact-detail"><svg><use href="#i-globe"/></svg><span data-i18n="ct.appsoon">Uygulama çok yakında web, Android ve iOS'ta</span></div>
-      <div class="contact-detail"><svg><use href="#i-pin"/></svg><span>WeIntensify B.V. · Kanaalkade 57, 1811 LS Alkmaar</span></div>
+      <div class="contact-detail"><svg><use href="#i-pin"/></svg><span>WeIntensify B.V. · Kanaalkade 57, 1811 LS Alkmaar · KvK 98895982</span></div>
     </div>
     <form class="contact-form reveal" id="contactForm" novalidate>
       <div class="form-row">
@@ -617,7 +623,7 @@
   <div class="container">
     <div class="cta-band reveal">
       <h2 id="cta-title" data-i18n="cta.title">Her şey yerli yerinde. İlk okutmadan itibaren.</h2>
-      <p data-i18n="cta.sub">Stockitup'ı bağla, bir tarayıcı al ve stoğunun gerçekte nerede olduğunu raf raf gör.</p>
+      <p data-i18n="cta.sub">Stockitup'ı bağla, barkod okuyucunu al ve stoğunun gerçekte nerede olduğunu raf raf gör.</p>
       <div class="hero-ctas">
         <a class="btn btn-primary" href="#contact" data-i18n="cta.b1">Demo talep et</a>
         <span class="btn btn-ghost" aria-disabled="true" data-i18n="cta.b2">Uygulama çok yakında</span>
@@ -649,13 +655,14 @@
         <ul>
           <li><a href="/privacy.html#tr" data-i18n="ft.privacy">Gizlilik bildirimi</a></li>
           <li><a href="/cookies.html#tr" data-i18n="ft.cookies">Çerez bildirimi</a></li>
-          <li><a href="/terms.html#tr" data-i18n="ft.terms">Genel koşullar</a></li>
+          <li><a href="/terms.html#tr" data-i18n="ft.terms">Kullanım koşulları</a></li>
           <li><a href="/support/#tr" data-i18n="ft.support">Destek</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
       <span data-i18n="ft.copy">© 2026 Loclume. Tüm hakları saklıdır. Bir WeIntensify B.V. markasıdır.</span>
+      <span class="ft-legal">KvK 98895982 · BTW NL868691574B01</span>
       <button type="button" id="cookiePrefsOpen" data-i18n="ft.cookieprefs">Çerez tercihleri</button>
     </div>
   </div>
@@ -677,7 +684,7 @@
   </div>
 </div>
 
-<script src="/assets/js/config.js?v=8"></script>
-<script src="/assets/js/app.js?v=8"></script>
+<script src="/assets/js/config.js?v=9"></script>
+<script src="/assets/js/app.js?v=9"></script>
 </body>
 </html>

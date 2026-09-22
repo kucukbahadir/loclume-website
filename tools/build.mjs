@@ -88,6 +88,8 @@ function jsonLd(lang, html) {
         "@type": "Organization",
         name: "WeIntensify B.V.",
         url: "https://weintensify.com/",
+        vatID: "NL868691574B01",
+        identifier: { "@type": "PropertyValue", propertyID: "KvK", value: "98895982" },
         address: { "@type": "PostalAddress", streetAddress: "Kanaalkade 57", postalCode: "1811 LS", addressLocality: "Alkmaar", addressCountry: "NL" }
       }
     },

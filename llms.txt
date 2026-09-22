@@ -16,7 +16,7 @@
 - Platforms: Web, Android, iOS (mobile apps launching soon).
 - Website languages: Dutch (primary), English, Turkish.
 - Contact: info@loclume.com
-- Company: WeIntensify B.V., Kanaalkade 57, 1811 LS Alkmaar, the Netherlands.
+- Company: WeIntensify B.V., Kanaalkade 57, 1811 LS Alkmaar, the Netherlands (KvK 98895982, VAT NL868691574B01).
 
 ## Pages
 

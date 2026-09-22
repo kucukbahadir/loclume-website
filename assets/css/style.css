@@ -746,6 +746,7 @@ footer { background: var(--d-canvas); color: var(--d-muted); padding: 56px 0 34p
   padding: 6px 0; transition: color .2s var(--ease);
 }
 .footer-bottom button:hover, .footer-bottom .link:hover { color: var(--d-ink); }
+.footer-bottom .ft-legal { font-variant-numeric: tabular-nums; }
 
 /* Legal pages */
 .legal-main { max-width: 780px; margin: 0 auto; padding: 130px 24px 80px; }
